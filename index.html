@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Jae-hwan Kim</title>
+    <meta
+      name="description"
+      content="Jae-hwan Kim — undergraduate researcher at Sejong University working on 3D Gaussian Splatting and indoor digital twins."
+    />
+    <meta property="og:title" content="Jae-hwan Kim" />
+    <meta
+      property="og:description"
+      content="3D Gaussian Splatting and modular indoor digital twins."
+    />
+    <meta property="og:url" content="https://jonny-rose-kim.github.io/" />
+    <meta property="og:image" content="https://jonny-rose-kim.github.io/assets/media/modutwin-corridor.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <!-- ───────────── Intro ───────────── -->
+      <header class="intro">
+        <div class="intro-text">
+          <h1 class="name">Jae-hwan Kim <span class="name-ko" lang="ko">김재환</span></h1>
+          <p class="role">Undergraduate Researcher · Sejong University</p>
+          <p>
+            I work on 3D reconstruction and indoor digital twins. My recent project,
+            <a href="#modutwin">Modutwin</a>, connects independently captured room-level
+            3D Gaussian Splatting assets into a single indoor digital twin by aligning them at
+            shared doors, without any additional training. It received the
+            <strong>Undergraduate Poster Excellence Award</strong> at KCGS 2026.
+          </p>
+          <p>
+            I am interested in 3D Gaussian Splatting, scene reconstruction, and interactive
+            3D systems that turn research methods into usable tools.
+          </p>
+          <nav class="links" aria-label="Contact">
+            <!-- TODO: <a href="mailto:you@example.com">Email</a> -->
+            <a href="https://github.com/jonny-rose-kim" target="_blank" rel="noreferrer">GitHub</a>
+            <!-- TODO: <a href="assets/cv.pdf" target="_blank" rel="noreferrer">CV</a> -->
+          </nav>
+        </div>
+        <img class="portrait" src="assets/media/profile.jpg" width="480" height="480" alt="Portrait of Jae-hwan Kim" />
+      </header>
+
+      <!-- ───────────── News ───────────── -->
+      <section aria-labelledby="news-title">
+        <h2 id="news-title" class="section-title">News</h2>
+        <ul class="news">
+          <li>
+            <span class="news-date">2026</span>
+            <span>Modutwin received the <strong>Undergraduate Poster Excellence Award</strong> at KCGS 2026.</span>
+          </li>
+          <li>
+            <span class="news-date">2026</span>
+            <span>Presented Modutwin as a poster at KCGS 2026.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ───────────── Research ───────────── -->
+      <section aria-labelledby="research-title">
+        <h2 id="research-title" class="section-title">Research</h2>
+
+        <article class="paper">
+          <figure class="paper-thumb media" data-anim="assets/media/modutwin-corridor.webp">
+            <img
+              src="assets/media/modutwin-corridor.jpg"
+              width="640"
+              height="372"
+              alt="Indoor digital twin assembled from room-level 3DGS modules"
+            />
+            <figcaption class="media-hint"></figcaption>
+          </figure>
+          <div class="paper-body">
+            <h3 class="paper-title">
+              <a href="https://sejonguniv-alliswell.github.io/" target="_blank" rel="noreferrer">
+                Modular Indoor Digital Twins via Door-Based Alignment of 3D Gaussian Splatting Assets
+              </a>
+            </h3>
+            <p class="authors">
+              Kyu-min Lee, <span class="me">Jae-hwan Kim</span>, Jae-hoon Park, Seoung-jun Cho, Oh-young Song
+            </p>
+            <p class="venue">
+              <span><em>KCGS 2026</em>, Poster</span>
+              <span class="badge">Undergraduate Poster Excellence Award</span>
+            </p>
+            <p class="paper-links">
+              <a href="https://sejonguniv-alliswell.github.io/" target="_blank" rel="noreferrer">project page</a>
+              <a href="https://sejonguniv-alliswell.github.io/KCGS2026paper.pdf" target="_blank" rel="noreferrer">paper</a>
+              <a href="https://youtu.be/1Raxe9ffwnc" target="_blank" rel="noreferrer">video</a>
+            </p>
+            <p class="paper-summary">
+              Room-level 3DGS assets are refined into clean modules and registered to each other
+              using four corresponding door corners, so an indoor digital twin can grow one room
+              at a time.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <!-- ───────────── Modutwin deep dive ───────────── -->
+      <section id="modutwin" aria-labelledby="modutwin-title">
+        <h2 id="modutwin-title" class="section-title">Modutwin: Pipeline &amp; Contributions</h2>
+        <p class="lead">
+          Capturing a whole floor as one 3DGS asset needs long capture paths, large-scale SfM,
+          and full retraining whenever part of the space changes. Modutwin reconstructs each room
+          separately and connects them at doors instead. I contributed to
+          <strong>all four stages</strong> of the pipeline.
+        </p>
+
+        <ol class="stages">
+          <li class="stage">
+            <figure class="media" data-anim="assets/media/stage1-refinement.webp">
+              <img
+                src="assets/media/stage1-refinement.jpg"
+                width="960"
+                height="538"
+                loading="lazy"
+                alt="Refinement stages of a room-level 3DGS asset"
+              />
+              <figcaption class="media-hint"></figcaption>
+            </figure>
+            <div class="stage-body">
+              <h3><span class="stage-no">01</span>3DGS Asset Refinement</h3>
+              <p>
+                Removes exterior Gaussians and those whose rendering extent crosses the room
+                boundary, even when centered inside, then bakes their appearance into boundary mesh
+                textures. Neighboring modules no longer leak into each other after alignment.
+              </p>
+              <dl class="metrics" aria-label="Appearance preservation versus original assets">
+                <div><dt>PSNR</dt><dd>30.78 dB</dd></div>
+                <div><dt>SSIM</dt><dd>0.9658</dd></div>
+                <div><dt>LPIPS</dt><dd>0.0552</dd></div>
+              </dl>
+              <p class="note">Average over 4 assets, refined vs. original, random indoor viewpoints.</p>
+            </div>
+          </li>
+
+          <li class="stage">
+            <figure class="media" data-anim="assets/media/stage2-door-extraction.webp">
+              <img
+                src="assets/media/stage2-door-extraction.jpg"
+                width="480"
+                height="346"
+                loading="lazy"
+                alt="SAM3-assisted door corner extraction"
+              />
+              <figcaption class="media-hint"></figcaption>
+            </figure>
+            <div class="stage-body">
+              <h3><span class="stage-no">02</span>SAM3-Based Door Extraction</h3>
+              <p>
+                Obtains the door region automatically with SAM3, or manually by clicking door
+                corners, and intersects it with the wall boundary plane to estimate reliable 3D
+                door corners.
+              </p>
+            </div>
+          </li>
+
+          <li class="stage">
+            <figure class="media" data-anim="assets/media/stage3-alignment.webp">
+              <img
+                src="assets/media/stage3-alignment.jpg"
+                width="640"
+                height="385"
+                loading="lazy"
+                alt="Door-based alignment of a new room module"
+              />
+              <figcaption class="media-hint"></figcaption>
+            </figure>
+            <div class="stage-body">
+              <h3><span class="stage-no">03</span>Door-Based Alignment</h3>
+              <p>
+                Computes the transformation between modules from four corresponding door corners
+                and uses it to attach a new room asset to the existing digital twin.
+              </p>
+            </div>
+          </li>
+
+          <li class="stage">
+            <figure class="media" data-anim="assets/media/stage4-door-interaction.webp">
+              <img
+                src="assets/media/stage4-door-interaction.jpg"
+                width="720"
+                height="352"
+                loading="lazy"
+                alt="Opening and closing a door in the aligned digital twin"
+              />
+              <figcaption class="media-hint"></figcaption>
+            </figure>
+            <div class="stage-body">
+              <h3><span class="stage-no">04</span>Door Interaction</h3>
+              <p>
+                Separates door meshes and Gaussians into independent door assets. Gaussians that
+                cross the door–wall boundary are split, so the door side moves with the door while
+                the wall side stays in the static room.
+              </p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="tags" aria-label="Keywords">
+          <span>3D Gaussian Splatting</span>
+          <span>SAM3</span>
+          <span>Mesh texture baking</span>
+          <span>3D registration</span>
+          <span>Digital twins</span>
+        </p>
+      </section>
+
+      <!-- ───────────── Education & Honors ───────────── -->
+      <section aria-labelledby="education-title">
+        <h2 id="education-title" class="section-title">Education &amp; Honors</h2>
+        <ul class="entries">
+          <li>
+            <div class="entry-head">
+              <strong>Sejong University</strong>
+              <span class="entry-meta">Seoul, Korea</span>
+            </div>
+            <!-- TODO: add your major and years, e.g. "B.S. in Computer Science and Engineering · 2021 – 2027" -->
+            <p>Undergraduate</p>
+          </li>
+          <li>
+            <div class="entry-head">
+              <strong>Undergraduate Poster Excellence Award</strong>
+              <span class="entry-meta">2026</span>
+            </div>
+            <p>Korea Computer Graphics Society (KCGS) 2026, for Modutwin</p>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <p>
+          Last updated November 2026 · Layout adapted from
+          <a href="https://github.com/jonbarron/jonbarron.github.io" target="_blank" rel="noreferrer">Jon Barron's website</a>
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      // Animations stay paused as still frames; play on hover (desktop) or tap (touch).
+      (() => {
+        const canHover = window.matchMedia("(hover: hover)").matches;
+
+        document.querySelectorAll(".media[data-anim]").forEach((figure) => {
+          const img = figure.querySelector("img");
+          const hint = figure.querySelector(".media-hint");
+          const still = img.getAttribute("src");
+          const anim = figure.dataset.anim;
+          let playing = false;
+
+          const set = (next) => {
+            playing = next;
+            img.src = playing ? anim : still;
+            figure.classList.toggle("is-playing", playing);
+            figure.setAttribute("aria-pressed", String(playing));
+            if (hint) hint.textContent = playing ? "" : canHover ? "Hover to play" : "Tap to play";
+          };
+
+          figure.tabIndex = 0;
+          figure.setAttribute("role", "button");
+          figure.setAttribute("aria-label", `Play animation: ${img.alt}`);
+          set(false);
+
+          if (canHover) {
+            figure.addEventListener("mouseenter", () => set(true));
+            figure.addEventListener("mouseleave", () => set(false));
+          } else {
+            figure.addEventListener("click", () => set(!playing));
+          }
+          figure.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              set(!playing);
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
