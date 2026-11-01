@@ -297,14 +297,76 @@ img {
   margin-top: 10px;
 }
 
-.cards-2 {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  gap: 14px;
-  margin-bottom: 32px;
+/* ───────────── Project boxes (background / findings) ───────────── */
+.box {
+  margin: 36px 0;
+  padding: 26px 28px 28px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
 }
 
-.card-points {
+.panel-head + .box {
+  margin-top: 0;
+}
+
+.box-title {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+.box-grid {
+  display: grid;
+  gap: 36px;
+}
+
+.box-grid.flow {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.box-grid.findings {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 32px;
+}
+
+.box-col {
+  position: relative;
+}
+
+.flow .box-col + .box-col::before {
+  content: "→";
+  position: absolute;
+  top: -1px;
+  left: -26px;
+  color: var(--faint);
+  font-size: 0.95rem;
+}
+
+.box-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 1px 9px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.box-col p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.box-col strong {
+  color: var(--text);
+}
+
+.box-list {
   margin: 0;
   padding-left: 1.1em;
   color: var(--muted);
@@ -312,16 +374,12 @@ img {
   line-height: 1.65;
 }
 
-.card-points li + li {
-  margin-top: 6px;
+.box-list li + li {
+  margin-top: 8px;
 }
 
-.card-points li::marker {
+.box-list li::marker {
   color: var(--faint);
-}
-
-.card-points strong {
-  color: var(--text);
 }
 
 .kv {
@@ -782,7 +840,7 @@ img {
   padding: 18px 20px 20px;
 }
 
-.stage h3 {
+.stage h4 {
   display: flex;
   align-items: baseline;
   gap: 10px;
@@ -972,8 +1030,20 @@ img {
   }
 
   .cards-3,
-  .cards-2 {
+  .box-grid.flow,
+  .box-grid.findings {
     grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .flow .box-col + .box-col::before {
+    content: "↓";
+    top: -22px;
+    left: 0;
+  }
+
+  .flow .box-col + .box-col {
+    padding-top: 6px;
   }
 }
 
@@ -994,6 +1064,10 @@ img {
 
   .panel-head {
     margin-bottom: 24px;
+  }
+
+  .box {
+    padding: 22px 18px;
   }
 
   .panel-title {

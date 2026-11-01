@@ -343,16 +343,41 @@
         <header class="panel-head">
           <span class="panel-no">04</span>
           <div>
-            <h2 id="modutwin-title" class="panel-title">Modutwin: Pipeline &amp; Contributions</h2>
+            <h2 id="modutwin-title" class="panel-title">Modutwin</h2>
             <p class="panel-sub">3DGS 에셋의 문 기반 정합을 통한 모듈형 실내 디지털 트윈 · KCGS 2026</p>
           </div>
         </header>
-        <p class="lead">
-          한 층 전체를 하나의 3DGS 에셋으로 만들면 촬영 경로가 길어지고 대규모 SfM이 필요하며,
-          공간 일부만 바뀌어도 전체를 다시 학습해야 합니다. Modutwin은 방마다 따로 복원한 뒤 문을
-          기준으로 연결합니다. 저는 파이프라인의 <strong>네 단계 모두</strong>에 참여했습니다.
-        </p>
 
+        <div class="box">
+          <h3 class="box-title">Project Background</h3>
+          <div class="box-grid flow">
+            <div class="box-col">
+              <span class="box-label">배경</span>
+              <p>
+                3D Gaussian Splatting은 높은 시각 품질과 실시간 렌더링 성능으로 실제 공간을 사실적으로
+                표현할 수 있어, 실내 디지털 트윈 구축에 활용 가능성이 큽니다.
+              </p>
+            </div>
+            <div class="box-col">
+              <span class="box-label">기존 한계</span>
+              <p>
+                넓은 실내를 하나의 3DGS 에셋으로 만들면 공간이 커질수록 촬영 시간, SfM 처리, 학습 비용이
+                함께 커지고, 방 하나를 다시 촬영해도 전체를 재처리해야 합니다. 방 단위 에셋을 그대로
+                이어 붙이면 경계 밖으로 퍼진 Gaussian이 이웃 공간을 침범합니다.
+              </p>
+            </div>
+            <div class="box-col">
+              <span class="box-label">본 연구의 해결</span>
+              <p>
+                방 단위 3DGS 에셋을 경계면 기준으로 정제해 독립 모듈로 만들고, 두 에셋에 공통으로 있는
+                <strong>문의 네 꼭짓점</strong>으로 정합합니다. 추가 학습 없이 디지털 트윈을 방 하나씩
+                확장할 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="block-title">Before / After</h3>
         <div class="before-after">
           <figure class="ba-item">
             <div class="media" data-anim="assets/media/modutwin-before.webp" data-group="modutwin-ba">
@@ -380,10 +405,11 @@
               <span class="ba-label">정합 후</span>
               <span class="media-hint"></span>
             </div>
-            <figcaption>문 기반 정합으로 방 모듈을 연결해 확장한 디지털 트윈</figcaption>
+            <figcaption>문 기반 정합으로 방 4개를 연결해 확장한 디지털 트윈</figcaption>
           </figure>
         </div>
 
+        <h3 class="block-title">Pipeline</h3>
         <ol class="stages">
           <li class="stage">
             <figure class="media" data-anim="assets/media/stage1-refinement.webp">
@@ -397,18 +423,11 @@
               <figcaption class="media-hint"></figcaption>
             </figure>
             <div class="stage-body">
-              <h3><span class="stage-no">01</span>3DGS 에셋 정제</h3>
+              <h4><span class="stage-no">01</span>3DGS 에셋 정제</h4>
               <p>
                 방 바깥의 Gaussian과, 중심이 방 안에 있더라도 렌더링 범위가 경계면을 넘는 Gaussian을
-                제거하고 그 외관을 경계 메시 텍스처에 베이킹합니다. 정합 후 이웃한 모듈끼리 시각적으로
-                겹치지 않습니다.
+                제거하고 그 외관을 경계 메시 텍스처에 베이킹합니다.
               </p>
-              <dl class="metrics" aria-label="원본 에셋 대비 외관 보존 정도">
-                <div><dt>PSNR</dt><dd>30.78 dB</dd></div>
-                <div><dt>SSIM</dt><dd>0.9658</dd></div>
-                <div><dt>LPIPS</dt><dd>0.0552</dd></div>
-              </dl>
-              <p class="note">에셋 4개 평균, 원본 대비 정제 결과, 무작위 실내 시점에서 렌더링</p>
             </div>
           </li>
 
@@ -424,10 +443,10 @@
               <figcaption class="media-hint"></figcaption>
             </figure>
             <div class="stage-body">
-              <h3><span class="stage-no">02</span>SAM3 기반 문 추출</h3>
+              <h4><span class="stage-no">02</span>SAM3 기반 문 추출</h4>
               <p>
-                SAM3로 문 영역을 자동으로 얻거나 문 모서리를 직접 클릭해 지정하고, 이를 벽 경계
-                평면과 교차시켜 신뢰할 수 있는 3D 문 코너를 추정합니다.
+                SAM3로 문 영역을 자동 추정하거나 문 꼭짓점을 직접 지정하고, 클릭 광선과 벽 경계면의
+                교점으로 3D 문 코너를 안정적으로 얻습니다.
               </p>
             </div>
           </li>
@@ -444,9 +463,9 @@
               <figcaption class="media-hint"></figcaption>
             </figure>
             <div class="stage-body">
-              <h3><span class="stage-no">03</span>문 기반 정합</h3>
+              <h4><span class="stage-no">03</span>문 기반 정합</h4>
               <p>
-                대응하는 문 코너 4개로 모듈 간 변환 행렬을 계산하고, 이를 이용해 새 방 에셋을 기존
+                대응하는 문 꼭짓점 4개로 모듈 간 변환 행렬을 계산하고, 이를 이용해 새 방 에셋을 기존
                 디지털 트윈에 연결합니다.
               </p>
             </div>
@@ -464,14 +483,60 @@
               <figcaption class="media-hint"></figcaption>
             </figure>
             <div class="stage-body">
-              <h3><span class="stage-no">04</span>문 인터랙션</h3>
+              <h4><span class="stage-no">04</span>문 인터랙션</h4>
               <p>
-                문 메시와 Gaussian을 독립된 문 에셋으로 분리합니다. 문과 벽의 경계를 가로지르는
-                Gaussian은 분할해, 문 쪽은 문과 함께 움직이고 벽 쪽은 정적인 방 에셋에 남도록 합니다.
+                문 영역의 메시와 Gaussian을 여닫을 수 있는 독립 요소로 분리하고, 문 경계를 가로지르는
+                Gaussian은 내·외부로 나눠 벽 쪽을 보존합니다.
               </p>
             </div>
           </li>
         </ol>
+
+        <div class="box">
+          <h3 class="box-title">Key Analysis &amp; Findings</h3>
+          <div class="box-grid findings">
+            <div class="box-col">
+              <span class="box-label">나의 역할</span>
+              <p>
+                에셋 정제, SAM3 기반 문 추출, 문 기반 정합, 문 인터랙션까지
+                <strong>파이프라인 4단계 전체</strong>의 구현에 참여했습니다.
+              </p>
+            </div>
+            <div class="box-col">
+              <span class="box-label">핵심 분석 · 결과</span>
+              <ul class="box-list">
+                <li>
+                  벽의 전체 색감·조명을 표현하는 저주파 Gaussian이 경계면 밖으로 안개처럼 퍼져 이웃 모듈을
+                  침범한다는 점을 분석했습니다. 학습 중 경계 제약은 품질 저하를 일으켜, 학습 후 정제로
+                  해결했습니다.
+                </li>
+                <li>
+                  중심 위치만으로 제거하면 교선 아티팩트가 남아, <strong>렌더링 범위가 경계면을 통과하는
+                  Gaussian</strong>까지 분류해 제거하고 텍스처로 베이킹했습니다.
+                </li>
+                <li>
+                  문을 중심 기준으로만 분리하면 여닫을 때 벽이 뜯겨 나가, 경계를 가로지르는 Gaussian을
+                  분할해 자연스러운 문 개폐를 구현했습니다.
+                </li>
+                <li>복도와 방 4개를 하나의 디지털 트윈으로 통합했고, 정제 후에도 원본 외관을 유지했습니다.</li>
+              </ul>
+              <dl class="metrics" aria-label="원본 에셋 대비 외관 보존 정도">
+                <div><dt>PSNR</dt><dd>30.78 dB</dd></div>
+                <div><dt>SSIM</dt><dd>0.9658</dd></div>
+                <div><dt>LPIPS</dt><dd>0.0552</dd></div>
+              </dl>
+              <p class="note">에셋 4개 평균, 같은 카메라 포즈에서 정제 전·후 렌더링 비교</p>
+            </div>
+            <div class="box-col">
+              <span class="box-label">의의</span>
+              <ul class="box-list">
+                <li>추가 학습 없이 기존 3DGS 에셋만으로 방 단위 확장과 부분 갱신이 가능한 디지털 트윈</li>
+                <li>방마다 따로 촬영한 에셋을 이어 붙이는 크라우드소싱형 실내 디지털 트윈 구축 가능성</li>
+                <li>문을 독립 요소로 다뤄 상호작용 가능한 트윈 · KCGS 2026 학부생 우수 포스터상</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
         <p class="tags" aria-label="키워드">
           <span>3D Gaussian Splatting</span>
@@ -487,38 +552,41 @@
         <header class="panel-head">
           <span class="panel-no">05</span>
           <div>
-            <h2 id="mrsr-title" class="panel-title">MRSR-NeRF: Overview</h2>
+            <h2 id="mrsr-title" class="panel-title">MRSR-NeRF</h2>
             <p class="panel-sub">다시점 참조 기반 NeRF 초해상화 · WACV 2027</p>
           </div>
         </header>
-        <p class="lead">
-          저해상도 이미지로 학습한 NeRF는 본 적 없는 디테일을 렌더링할 수 없습니다. MRSR-NeRF는
-          대상 장면의 다시점 저해상도 이미지만 사용합니다. 어떤 영역이 인접 시점에서 더 크게 보이면
-          그 시점을 참조로 삼아, 실제 텍스처를 다시점 일관성 있게 전달합니다.
-        </p>
-        <div class="cards-2">
-          <article class="card">
-            <h3>My Contribution · Model</h3>
-            <ul class="card-points">
-              <li>
-                <strong>적응형 샘플링 네트워크(ASN) 개발.</strong>
-                참조 패치와 대상 패치 사이의 서브픽셀 어긋남을 보정해, 텍스처가 정확한 위치로 전달되고
-                시점 간 깜빡임이 줄어들도록 했습니다.
-              </li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>My Contribution · Experiments</h3>
-            <ul class="card-points">
-              <li><strong>데이터셋 구성.</strong> LLFF·NeRF-Synthetic 4배 초해상화 설정과 학습·테스트 분할</li>
-              <li><strong>베이스라인 재현.</strong> 기존 방법을 같은 Instant-NGP 백본·저해상도 조건으로 맞춰 공정 비교</li>
-              <li><strong>정량 평가.</strong> PSNR·SSIM·LPIPS·NIQE와 시점 간 일관성 지표 측정</li>
-              <li><strong>Ablation.</strong> 구성 요소를 하나씩 더하며 각 모듈의 효과 검증</li>
-              <li><strong>계산 비용 분석.</strong> 학습 시간과 메모리 사용량 비교</li>
-            </ul>
-          </article>
+
+        <div class="box">
+          <h3 class="box-title">Project Background</h3>
+          <div class="box-grid flow">
+            <div class="box-col">
+              <span class="box-label">배경</span>
+              <p>
+                드론이나 CCTV처럼 입력 이미지가 저해상도인 환경에서는, 입력 해상도에 크게 의존하는 NeRF의
+                복원 품질이 떨어집니다.
+              </p>
+            </div>
+            <div class="box-col">
+              <span class="box-label">기존 한계</span>
+              <p>
+                시점마다 단일 이미지 초해상화를 적용하면 존재하지 않는 디테일을 지어내 시점 간 일관성이
+                깨지고 깜빡임이 생깁니다. 생성 모델 기반 방법은 그럴듯하지만 원본 구조와 색감에서 벗어난
+                디테일을 만들 수 있습니다.
+              </p>
+            </div>
+            <div class="box-col">
+              <span class="box-label">본 연구의 해결</span>
+              <p>
+                같은 영역이 <strong>인접 시점에서 더 크게 찍힌 실제 픽셀</strong>을 참조로 가져와
+                초해상화합니다. 외부 데이터 없이 장면별로 학습하고, 깊이 기반 교차 어텐션과 ASN으로
+                정렬한 뒤 초해상화 이미지로 NeRF를 다시 학습합니다.
+              </p>
+            </div>
+          </div>
         </div>
 
+        <h3 class="block-title">Result Preview</h3>
         <figure class="media figure-block" data-anim="assets/media/mrsr-comparison.webp">
           <img
             src="assets/media/mrsr-comparison.jpg"
@@ -533,6 +601,7 @@
           MRSR-NeRF는 DiSR-NeRF보다 시점 간 깜빡임이 훨씬 적으면서 세밀한 디테일을 복원합니다.
         </p>
 
+        <h3 class="block-title">Pipeline</h3>
         <a class="figure-block pipeline" href="assets/media/mrsr-overview.jpg" target="_blank" rel="noreferrer">
           <img
             src="assets/media/mrsr-overview.jpg"
@@ -552,6 +621,7 @@
           <li><strong>NeRF 업데이트.</strong> 초해상화된 이미지로 NeRF를 미세 조정합니다.</li>
         </ol>
 
+        <h3 class="block-title">Results</h3>
         <div class="table-wrap">
           <table class="results">
             <caption>4배 초해상화, 모든 방법에 Instant-NGP 백본 사용</caption>
@@ -594,7 +664,45 @@
             </tbody>
           </table>
         </div>
-        <p class="note">NIQE 결과는 프로젝트 저장소에서 확인할 수 있습니다.</p>
+
+        <div class="box">
+          <h3 class="box-title">Key Analysis &amp; Findings</h3>
+          <div class="box-grid findings">
+            <div class="box-col">
+              <span class="box-label">나의 역할</span>
+              <ul class="box-list">
+                <li><strong>적응형 샘플링 네트워크(ASN) 개발.</strong> 참조·대상 패치의 서브픽셀 어긋남 보정</li>
+                <li>
+                  <strong>실험 설계와 평가 전반.</strong> 데이터셋 구성, 베이스라인 재현, 정량 평가,
+                  ablation, 계산 비용 분석
+                </li>
+              </ul>
+            </div>
+            <div class="box-col">
+              <span class="box-label">핵심 분석 · 결과</span>
+              <ul class="box-list">
+                <li>
+                  기존 방법을 같은 Instant-NGP 백본과 저해상도 전용 조건으로 맞춰 공정하게 비교했고,
+                  LLFF와 NeRF-Synthetic 4배 초해상화에서 <strong>PSNR·SSIM·LPIPS 모두 최고 성능</strong>을
+                  확인했습니다. (NeRF-Synthetic PSNR 27.31 dB, Instant-NGP 대비 +0.95 dB)
+                </li>
+                <li>
+                  Ablation으로 구성 요소별 효과를 검증했습니다. ASN은 참조 기반 복원에서 남는 서브픽셀
+                  어긋남을 보정해, 디테일을 유지하면서 시점 간 일관성을 되살립니다.
+                </li>
+                <li>계산 비용 분석으로 확산 모델 기반 방법보다 짧은 학습 시간과 적은 메모리로 동작함을 확인했습니다.</li>
+              </ul>
+            </div>
+            <div class="box-col">
+              <span class="box-label">의의</span>
+              <ul class="box-list">
+                <li>디테일을 지어내지 않고 실제 관측된 픽셀로 복원해, 원본 충실도가 중요한 3D 복원에 적합</li>
+                <li>외부 데이터나 사전 학습 모델 없이 장면별로 동작</li>
+                <li>저해상도 촬영 환경에서의 고품질 3D 복원 가능성 · WACV 2027 채택</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
         <p class="tags" aria-label="키워드">
           <span>Neural Radiance Fields</span>
