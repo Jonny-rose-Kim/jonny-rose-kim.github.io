@@ -353,6 +353,37 @@
           기준으로 연결합니다. 저는 파이프라인의 <strong>네 단계 모두</strong>에 참여했습니다.
         </p>
 
+        <div class="before-after">
+          <figure class="ba-item">
+            <div class="media" data-anim="assets/media/modutwin-before.webp" data-group="modutwin-ba">
+              <img
+                src="assets/media/modutwin-before.jpg"
+                width="640"
+                height="405"
+                loading="lazy"
+                alt="정합 전: 복도만 있는 초기 디지털 트윈"
+              />
+              <span class="ba-label">정합 전</span>
+              <span class="media-hint"></span>
+            </div>
+            <figcaption>복도만 복원된 초기 디지털 트윈</figcaption>
+          </figure>
+          <figure class="ba-item">
+            <div class="media" data-anim="assets/media/modutwin-corridor.webp" data-group="modutwin-ba">
+              <img
+                src="assets/media/modutwin-corridor.jpg"
+                width="640"
+                height="372"
+                loading="lazy"
+                alt="정합 후: 문 기반 정합으로 방을 연결해 확장한 디지털 트윈"
+              />
+              <span class="ba-label">정합 후</span>
+              <span class="media-hint"></span>
+            </div>
+            <figcaption>문 기반 정합으로 방 모듈을 연결해 확장한 디지털 트윈</figcaption>
+          </figure>
+        </div>
+
         <ol class="stages">
           <li class="stage">
             <figure class="media" data-anim="assets/media/stage1-refinement.webp">
@@ -584,8 +615,10 @@
 
     <script>
       // Animations stay paused as still frames; play on hover (desktop) or tap (touch).
+      // Media sharing a data-group play and stop together.
       (() => {
         const canHover = window.matchMedia("(hover: hover)").matches;
+        const setters = new Map();
 
         document.querySelectorAll(".media[data-anim]").forEach((figure) => {
           const img = figure.querySelector("img");
@@ -602,21 +635,28 @@
             if (hint) hint.textContent = playing ? "" : canHover ? "마우스를 올리면 재생" : "탭하여 재생";
           };
 
+          const setGroup = (next) => {
+            const group = figure.dataset.group;
+            const members = group ? document.querySelectorAll(`.media[data-group="${group}"]`) : [figure];
+            members.forEach((member) => setters.get(member)(next));
+          };
+
+          setters.set(figure, set);
           figure.tabIndex = 0;
           figure.setAttribute("role", "button");
           figure.setAttribute("aria-label", `애니메이션 재생: ${img.alt}`);
           set(false);
 
           if (canHover) {
-            figure.addEventListener("mouseenter", () => set(true));
-            figure.addEventListener("mouseleave", () => set(false));
+            figure.addEventListener("mouseenter", () => setGroup(true));
+            figure.addEventListener("mouseleave", () => setGroup(false));
           } else {
-            figure.addEventListener("click", () => set(!playing));
+            figure.addEventListener("click", () => setGroup(!playing));
           }
           figure.addEventListener("keydown", (event) => {
             if (event.key === "Enter" || event.key === " ") {
               event.preventDefault();
-              set(!playing);
+              setGroup(!playing);
             }
           });
         });
