@@ -7,12 +7,12 @@
     <title>Jae-hwan Kim</title>
     <meta
       name="description"
-      content="Jae-hwan Kim — undergraduate researcher at Sejong University working on 3D Gaussian Splatting and indoor digital twins."
+      content="Jae-hwan Kim — undergraduate researcher at Sejong University working on 3D scene reconstruction, 3D Gaussian Splatting, and neural rendering."
     />
     <meta property="og:title" content="Jae-hwan Kim" />
     <meta
       property="og:description"
-      content="3D Gaussian Splatting and modular indoor digital twins."
+      content="3D scene reconstruction and neural rendering: Modutwin (KCGS 2026) and MRSR-NeRF (WACV 2027)."
     />
     <meta property="og:url" content="https://jonny-rose-kim.github.io/" />
     <meta property="og:image" content="https://jonny-rose-kim.github.io/assets/media/modutwin-corridor.jpg" />
@@ -32,15 +32,17 @@
           <h1 class="name">Jae-hwan Kim <span class="name-ko" lang="ko">김재환</span></h1>
           <p class="role">Undergraduate Researcher · Sejong University</p>
           <p>
-            I work on 3D reconstruction and indoor digital twins. My recent project,
-            <a href="#modutwin">Modutwin</a>, connects independently captured room-level
-            3D Gaussian Splatting assets into a single indoor digital twin by aligning them at
-            shared doors, without any additional training. It received the
+            I work on reconstructing real-world 3D scenes from captured images and turning them
+            into representations that people and systems can use.
+            <a href="#modutwin">Modutwin</a> builds modular indoor digital twins by aligning
+            room-level 3D Gaussian Splatting assets at shared doors, and received the
             <strong>Undergraduate Poster Excellence Award</strong> at KCGS 2026.
+            <a href="#mrsr-nerf">MRSR-NeRF</a>, accepted to <strong>WACV 2027</strong>,
+            super-resolves NeRF scenes with authentic textures borrowed from neighboring views.
           </p>
           <p>
-            I am interested in 3D Gaussian Splatting, scene reconstruction, and interactive
-            3D systems that turn research methods into usable tools.
+            I am interested in 3D scene reconstruction, neural and inverse rendering, and
+            semantic, interactive scene representations for simulation and robotics.
           </p>
           <nav class="links" aria-label="Contact">
             <!-- TODO: <a href="mailto:you@example.com">Email</a> -->
@@ -56,12 +58,15 @@
         <h2 id="news-title" class="section-title">News</h2>
         <ul class="news">
           <li>
-            <span class="news-date">2026</span>
-            <span>Modutwin received the <strong>Undergraduate Poster Excellence Award</strong> at KCGS 2026.</span>
+            <span class="news-date">2026.10</span>
+            <span>MRSR-NeRF has been accepted to <strong>WACV 2027</strong>.</span>
           </li>
           <li>
             <span class="news-date">2026</span>
-            <span>Presented Modutwin as a poster at KCGS 2026.</span>
+            <span>
+              Presented Modutwin at KCGS 2026 and received the
+              <strong>Undergraduate Poster Excellence Award</strong>.
+            </span>
           </li>
         </ul>
       </section>
@@ -97,11 +102,48 @@
               <a href="https://sejonguniv-alliswell.github.io/" target="_blank" rel="noreferrer">project page</a>
               <a href="https://sejonguniv-alliswell.github.io/KCGS2026paper.pdf" target="_blank" rel="noreferrer">paper</a>
               <a href="https://youtu.be/1Raxe9ffwnc" target="_blank" rel="noreferrer">video</a>
+              <a href="#modutwin">details ↓</a>
             </p>
             <p class="paper-summary">
               Room-level 3DGS assets are refined into clean modules and registered to each other
               using four corresponding door corners, so an indoor digital twin can grow one room
               at a time.
+            </p>
+          </div>
+        </article>
+
+        <article class="paper">
+          <figure class="paper-thumb media" data-anim="assets/media/mrsr-result.webp">
+            <img
+              src="assets/media/mrsr-result.jpg"
+              width="360"
+              height="271"
+              alt="Super-resolved NeRF rendering produced by MRSR-NeRF"
+            />
+            <figcaption class="media-hint"></figcaption>
+          </figure>
+          <div class="paper-body">
+            <h3 class="paper-title">
+              <a href="https://github.com/fesua/MRSR-NeRF" target="_blank" rel="noreferrer">
+                MRSR-NeRF: Multi-View Reference-Guided Super-Resolution for Neural Radiance Fields
+              </a>
+            </h3>
+            <p class="authors">
+              Junseo Choi, YoungJun Choi, <span class="me">Jaehwan Kim</span>, Seunghwa Jeong<sup>†</sup>
+            </p>
+            <p class="venue">
+              <span><em>WACV 2027</em></span>
+            </p>
+            <p class="paper-links">
+              <a href="https://github.com/fesua/MRSR-NeRF" target="_blank" rel="noreferrer">github</a>
+              <span class="soon">paper &amp; code coming soon</span>
+              <a href="#mrsr-nerf">details ↓</a>
+            </p>
+            <p class="paper-summary">
+              A zero-shot, scene-specific super-resolution framework for NeRF that transfers
+              high-frequency textures from neighboring views where the same region appears
+              magnified, instead of hallucinating details. No external data or pre-trained SR
+              models are required.
             </p>
           </div>
         </article>
@@ -217,24 +259,113 @@
         </p>
       </section>
 
-      <!-- ───────────── Education & Honors ───────────── -->
+      <!-- ───────────── MRSR-NeRF overview ───────────── -->
+      <section id="mrsr-nerf" aria-labelledby="mrsr-title">
+        <h2 id="mrsr-title" class="section-title">MRSR-NeRF: Overview</h2>
+        <p class="lead">
+          A NeRF trained on low-resolution images cannot render detail it never saw. MRSR-NeRF
+          uses only the multi-view low-resolution images of the target scene: wherever a region
+          appears magnified in a neighboring view, that view becomes a reference for authentic,
+          multi-view consistent texture transfer.
+        </p>
+        <!-- TODO: add a sentence on which parts of MRSR-NeRF you worked on. -->
+
+        <figure class="media figure-block" data-anim="assets/media/mrsr-comparison.webp">
+          <img
+            src="assets/media/mrsr-comparison.jpg"
+            width="684"
+            height="256"
+            loading="lazy"
+            alt="Side-by-side renderings from MRSR-NeRF and DiSR-NeRF"
+          />
+          <figcaption class="media-hint"></figcaption>
+        </figure>
+        <p class="figure-caption">
+          MRSR-NeRF restores fine details with significantly less flickering across views than DiSR-NeRF.
+        </p>
+
+        <a class="figure-block pipeline" href="assets/media/mrsr-overview.jpg" target="_blank" rel="noreferrer">
+          <img
+            src="assets/media/mrsr-overview.jpg"
+            width="1800"
+            height="396"
+            loading="lazy"
+            alt="MRSR-NeRF pipeline: NeRF initialization, reference patch sourcing, SR training and inference, NeRF update"
+          />
+        </a>
+        <ol class="steps">
+          <li><strong>NeRF initialization.</strong> A NeRF trained on the low-resolution images provides depth guidance.</li>
+          <li><strong>Reference patch sourcing.</strong> Magnified reference patches are retrieved from adjacent views via feature matching.</li>
+          <li>
+            <strong>MRSR training &amp; inference.</strong> A multi-view cross-attention block with depth priors and an
+            adaptive sampling network transfer textures while correcting sub-pixel misalignment.
+          </li>
+          <li><strong>NeRF update.</strong> The NeRF is fine-tuned on the super-resolved images.</li>
+        </ol>
+
+        <div class="table-wrap">
+          <table class="results">
+            <caption>4× super-resolution, Instant-NGP backbone for all methods</caption>
+            <thead>
+              <tr>
+                <th rowspan="2" scope="col">Method</th>
+                <th colspan="3" scope="colgroup">LLFF</th>
+                <th colspan="3" scope="colgroup">NeRF-Synthetic</th>
+              </tr>
+              <tr>
+                <th scope="col">PSNR ↑</th>
+                <th scope="col">SSIM ↑</th>
+                <th scope="col">LPIPS ↓</th>
+                <th scope="col">PSNR ↑</th>
+                <th scope="col">SSIM ↑</th>
+                <th scope="col">LPIPS ↓</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Instant-NGP</th>
+                <td>23.16</td><td>0.7174</td><td>0.3964</td>
+                <td>26.36</td><td>0.8981</td><td>0.1174</td>
+              </tr>
+              <tr>
+                <th scope="row">NeRF-SR</th>
+                <td>23.16</td><td>0.7177</td><td>0.3262</td>
+                <td>26.34</td><td>0.8982</td><td>0.1169</td>
+              </tr>
+              <tr>
+                <th scope="row">DiSR-NeRF</th>
+                <td>22.73</td><td>0.7255</td><td>0.3340</td>
+                <td>25.88</td><td>0.8971</td><td>0.1186</td>
+              </tr>
+              <tr class="ours">
+                <th scope="row">MRSR-NeRF</th>
+                <td>23.36</td><td>0.7305</td><td>0.3244</td>
+                <td>27.31</td><td>0.9075</td><td>0.1102</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">NIQE results are listed in the project repository.</p>
+
+        <p class="tags" aria-label="Keywords">
+          <span>Neural Radiance Fields</span>
+          <span>Reference-based super-resolution</span>
+          <span>Cross-attention</span>
+          <span>Feature matching</span>
+          <span>Instant-NGP</span>
+        </p>
+      </section>
+
+      <!-- ───────────── Education ───────────── -->
       <section aria-labelledby="education-title">
-        <h2 id="education-title" class="section-title">Education &amp; Honors</h2>
+        <h2 id="education-title" class="section-title">Education</h2>
         <ul class="entries">
           <li>
             <div class="entry-head">
               <strong>Sejong University</strong>
-              <span class="entry-meta">Seoul, Korea</span>
+              <span class="entry-meta">2021 – 2026</span>
             </div>
-            <!-- TODO: add your major and years, e.g. "B.S. in Computer Science and Engineering · 2021 – 2027" -->
-            <p>Undergraduate</p>
-          </li>
-          <li>
-            <div class="entry-head">
-              <strong>Undergraduate Poster Excellence Award</strong>
-              <span class="entry-meta">2026</span>
-            </div>
-            <p>Korea Computer Graphics Society (KCGS) 2026, for Modutwin</p>
+            <p>B.S. in Software · Seoul, Korea</p>
           </li>
         </ul>
       </section>

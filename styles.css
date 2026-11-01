@@ -31,6 +31,10 @@
     --badge-bg: #2b261d;
     --media-bg: #111314;
   }
+
+  .pipeline img {
+    opacity: 0.92;
+  }
 }
 
 /* ───────────── Base ───────────── */
@@ -162,7 +166,7 @@ section {
 
 .news li {
   display: grid;
-  grid-template-columns: 64px 1fr;
+  grid-template-columns: 76px 1fr;
   gap: 12px;
   padding: 4px 0;
 }
@@ -271,10 +275,21 @@ section {
   font-weight: 500;
 }
 
+.paper-links .soon {
+  color: var(--faint);
+  font-weight: 400;
+}
+
 .paper-summary {
   margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.paper + .paper {
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px dashed var(--border);
 }
 
 /* ───────────── Modutwin stages ───────────── */
@@ -371,9 +386,107 @@ section {
   font-variant-numeric: tabular-nums;
 }
 
-.stage .note {
+.stage .note,
+.note {
   color: var(--faint);
   font-size: 0.8rem;
+}
+
+/* ───────────── MRSR-NeRF overview ───────────── */
+.figure-block {
+  display: block;
+  margin: 0 0 10px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.figure-caption {
+  margin-bottom: 32px;
+  color: var(--faint);
+  font-size: 0.85rem;
+}
+
+.pipeline {
+  padding: 10px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+}
+
+.steps {
+  margin: 16px 0 28px;
+  padding-left: 1.3em;
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+
+.steps li + li {
+  margin-top: 6px;
+}
+
+.steps li::marker {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.steps strong {
+  color: var(--text);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.results {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.results caption {
+  padding: 12px 16px 4px;
+  color: var(--faint);
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.results th,
+.results td {
+  padding: 8px 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.results thead th {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+
+.results tbody th {
+  font-weight: 500;
+  text-align: left;
+}
+
+.results td {
+  color: var(--muted);
+}
+
+.results tr.ours {
+  background: var(--accent-soft);
+}
+
+.results tr.ours th,
+.results tr.ours td {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .tags {
