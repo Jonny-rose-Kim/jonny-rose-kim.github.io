@@ -1,79 +1,85 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title>Jae-hwan Kim</title>
+    <title>김재환 | Jae-hwan Kim</title>
     <meta
       name="description"
-      content="Jae-hwan Kim — undergraduate researcher at Sejong University working on 3D scene reconstruction, 3D Gaussian Splatting, and neural rendering."
+      content="김재환 — 세종대학교 소프트웨어학과 학부연구생. 3D 장면 복원, 3D Gaussian Splatting, 뉴럴 렌더링을 연구합니다."
     />
-    <meta property="og:title" content="Jae-hwan Kim" />
+    <meta property="og:title" content="김재환 | Jae-hwan Kim" />
     <meta
       property="og:description"
-      content="3D scene reconstruction and neural rendering: Modutwin (KCGS 2026) and MRSR-NeRF (WACV 2027)."
+      content="3D 장면 복원과 뉴럴 렌더링 연구: Modutwin (KCGS 2026), MRSR-NeRF (WACV 2027)"
     />
     <meta property="og:url" content="https://jonny-rose-kim.github.io/" />
     <meta property="og:image" content="https://jonny-rose-kim.github.io/assets/media/modutwin-corridor.jpg" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="page">
-      <!-- ───────────── Intro ───────────── -->
+      <!-- ───────────── 소개 ───────────── -->
       <header class="intro">
         <div class="intro-text">
-          <h1 class="name">Jae-hwan Kim <span class="name-ko" lang="ko">김재환</span></h1>
-          <p class="role">Undergraduate Researcher · Sejong University</p>
+          <h1 class="name">김재환 <span class="name-en" lang="en">Jae-hwan Kim</span></h1>
+          <p class="role">세종대학교 소프트웨어학과 · Immersive Media Lab 학부연구생</p>
           <p>
-            I work on reconstructing real-world 3D scenes from captured images and turning them
-            into representations that people and systems can use.
-            <a href="#modutwin">Modutwin</a> builds modular indoor digital twins by aligning
-            room-level 3D Gaussian Splatting assets at shared doors, and received the
-            <strong>Undergraduate Poster Excellence Award</strong> at KCGS 2026.
-            <a href="#mrsr-nerf">MRSR-NeRF</a>, accepted to <strong>WACV 2027</strong>,
-            super-resolves NeRF scenes with authentic textures borrowed from neighboring views.
+            카메라로 촬영한 이미지로부터 실제 3D 장면을 복원하고, 이를 사람과 시스템이 활용할 수
+            있는 형태로 표현하는 연구를 하고 있습니다.
+            <a href="#modutwin">Modutwin</a>에서는 방 단위로 촬영한 3D Gaussian Splatting 에셋을
+            문을 기준으로 정합해 모듈형 실내 디지털 트윈을 구축했고, KCGS 2026에서
+            <strong>학부생 우수 포스터상</strong>을 받았습니다.
+            <a href="#mrsr-nerf">MRSR-NeRF</a>는 인접 시점의 실제 텍스처를 활용해 NeRF 장면을
+            초해상화하는 연구로, <strong>WACV 2027</strong>에 채택되었습니다.
           </p>
           <p>
-            I am interested in 3D scene reconstruction, neural and inverse rendering, and
-            semantic, interactive scene representations for simulation and robotics.
+            관심 분야는 3D 장면 복원, 뉴럴·인버스 렌더링, 그리고 시뮬레이션과 로봇 환경에 활용할 수
+            있는 시맨틱·인터랙티브 장면 표현입니다.
           </p>
-          <nav class="links" aria-label="Contact">
+          <nav class="links" aria-label="연락처">
             <!-- TODO: <a href="mailto:you@example.com">Email</a> -->
             <a href="https://github.com/jonny-rose-kim" target="_blank" rel="noreferrer">GitHub</a>
             <!-- TODO: <a href="assets/cv.pdf" target="_blank" rel="noreferrer">CV</a> -->
           </nav>
         </div>
-        <img class="portrait" src="assets/media/profile.jpg" width="480" height="480" alt="Portrait of Jae-hwan Kim" />
+        <img class="portrait" src="assets/media/profile.jpg" width="480" height="480" alt="김재환 프로필 사진" />
       </header>
 
-      <!-- ───────────── News ───────────── -->
+      <!-- ───────────── 소식 ───────────── -->
       <section aria-labelledby="news-title">
-        <h2 id="news-title" class="section-title">News</h2>
+        <h2 id="news-title" class="section-title">소식</h2>
         <ul class="news">
           <li>
             <span class="news-date">2026.10</span>
-            <span>MRSR-NeRF has been accepted to <strong>WACV 2027</strong>.</span>
+            <span>MRSR-NeRF가 <strong>WACV 2027</strong>에 채택되었습니다.</span>
           </li>
           <li>
             <span class="news-date">2026</span>
-            <span>
-              Presented Modutwin at KCGS 2026 and received the
-              <strong>Undergraduate Poster Excellence Award</strong>.
-            </span>
+            <span>KCGS 2026에서 Modutwin을 발표하고 <strong>학부생 우수 포스터상</strong>을 받았습니다.</span>
+          </li>
+          <li>
+            <span class="news-date">2026.01</span>
+            <span>세종대학교 Immersive Media Laboratory에 학부연구생으로 합류했습니다.</span>
           </li>
         </ul>
       </section>
 
-      <!-- ───────────── Research ───────────── -->
+      <!-- ───────────── 연구 ───────────── -->
       <section aria-labelledby="research-title">
-        <h2 id="research-title" class="section-title">Research</h2>
+        <h2 id="research-title" class="section-title">연구</h2>
 
         <article class="paper">
           <figure class="paper-thumb media" data-anim="assets/media/modutwin-corridor.webp">
@@ -81,33 +87,35 @@
               src="assets/media/modutwin-corridor.jpg"
               width="640"
               height="372"
-              alt="Indoor digital twin assembled from room-level 3DGS modules"
+              alt="방 단위 3DGS 모듈로 구성한 실내 디지털 트윈"
             />
             <figcaption class="media-hint"></figcaption>
           </figure>
           <div class="paper-body">
             <h3 class="paper-title">
               <a href="https://sejonguniv-alliswell.github.io/" target="_blank" rel="noreferrer">
-                Modular Indoor Digital Twins via Door-Based Alignment of 3D Gaussian Splatting Assets
+                3DGS 에셋의 문 기반 정합을 통한 모듈형 실내 디지털 트윈 구축
               </a>
             </h3>
+            <p class="paper-title-en" lang="en">
+              Modular Indoor Digital Twins via Door-Based Alignment of 3D Gaussian Splatting Assets
+            </p>
             <p class="authors">
-              Kyu-min Lee, <span class="me">Jae-hwan Kim</span>, Jae-hoon Park, Seoung-jun Cho, Oh-young Song
+              이규민, <span class="me">김재환</span>, 박재훈, 조성준, 송오영
             </p>
             <p class="venue">
-              <span><em>KCGS 2026</em>, Poster</span>
-              <span class="badge">Undergraduate Poster Excellence Award</span>
+              <span><em>KCGS 2026</em>, 포스터</span>
+              <span class="badge">학부생 우수 포스터상</span>
             </p>
             <p class="paper-links">
-              <a href="https://sejonguniv-alliswell.github.io/" target="_blank" rel="noreferrer">project page</a>
-              <a href="https://sejonguniv-alliswell.github.io/KCGS2026paper.pdf" target="_blank" rel="noreferrer">paper</a>
-              <a href="https://youtu.be/1Raxe9ffwnc" target="_blank" rel="noreferrer">video</a>
-              <a href="#modutwin">details ↓</a>
+              <a href="https://sejonguniv-alliswell.github.io/" target="_blank" rel="noreferrer">프로젝트 페이지</a>
+              <a href="https://sejonguniv-alliswell.github.io/KCGS2026paper.pdf" target="_blank" rel="noreferrer">논문</a>
+              <a href="https://youtu.be/1Raxe9ffwnc" target="_blank" rel="noreferrer">영상</a>
+              <a href="#modutwin">자세히 ↓</a>
             </p>
             <p class="paper-summary">
-              Room-level 3DGS assets are refined into clean modules and registered to each other
-              using four corresponding door corners, so an indoor digital twin can grow one room
-              at a time.
+              방 단위 3DGS 에셋을 깨끗한 모듈로 정제하고 대응하는 문 코너 4개로 서로 정합해,
+              실내 디지털 트윈을 방 하나씩 확장할 수 있게 합니다.
             </p>
           </div>
         </article>
@@ -118,45 +126,69 @@
               src="assets/media/mrsr-result.jpg"
               width="360"
               height="271"
-              alt="Super-resolved NeRF rendering produced by MRSR-NeRF"
+              alt="MRSR-NeRF로 초해상화한 NeRF 렌더링"
             />
             <figcaption class="media-hint"></figcaption>
           </figure>
           <div class="paper-body">
-            <h3 class="paper-title">
+            <h3 class="paper-title" lang="en">
               <a href="https://github.com/fesua/MRSR-NeRF" target="_blank" rel="noreferrer">
                 MRSR-NeRF: Multi-View Reference-Guided Super-Resolution for Neural Radiance Fields
               </a>
             </h3>
-            <p class="authors">
+            <p class="authors" lang="en">
               Junseo Choi, YoungJun Choi, <span class="me">Jaehwan Kim</span>, Seunghwa Jeong<sup>†</sup>
             </p>
             <p class="venue">
               <span><em>WACV 2027</em></span>
             </p>
             <p class="paper-links">
-              <a href="https://github.com/fesua/MRSR-NeRF" target="_blank" rel="noreferrer">github</a>
-              <span class="soon">paper &amp; code coming soon</span>
-              <a href="#mrsr-nerf">details ↓</a>
+              <a href="https://github.com/fesua/MRSR-NeRF" target="_blank" rel="noreferrer">GitHub</a>
+              <span class="soon">논문·코드 공개 예정</span>
+              <a href="#mrsr-nerf">자세히 ↓</a>
             </p>
             <p class="paper-summary">
-              A zero-shot, scene-specific super-resolution framework for NeRF that transfers
-              high-frequency textures from neighboring views where the same region appears
-              magnified, instead of hallucinating details. No external data or pre-trained SR
-              models are required.
+              같은 영역이 더 크게 보이는 인접 시점에서 고주파 텍스처를 가져와 NeRF를 초해상화하는
+              zero-shot·장면별 프레임워크입니다. 디테일을 지어내지 않으며, 외부 데이터나 사전 학습된
+              초해상화 모델이 필요 없습니다.
             </p>
           </div>
         </article>
       </section>
 
-      <!-- ───────────── Modutwin deep dive ───────────── -->
+      <!-- ───────────── 연구 경험 ───────────── -->
+      <section aria-labelledby="experience-title">
+        <h2 id="experience-title" class="section-title">연구 경험</h2>
+        <ul class="entries">
+          <li>
+            <div class="entry-head">
+              <strong>Immersive Media Laboratory, 세종대학교</strong>
+              <span class="entry-meta">2026.01 – 현재</span>
+            </div>
+            <p>컴퓨터비전 연구실 · 학부연구생</p>
+            <ul class="entry-points">
+              <li>
+                <strong>3DGS 품질 개선을 위한 키프레임 선택.</strong>
+                드론으로 촬영한 야외 장면의 3D 복원 품질 저하 문제를 다뤘습니다. 카메라 이동 거리와
+                회전 각도를 함께 반영한 프레임 스코어링 알고리즘으로 불필요한 프레임을 제거해 학습
+                효율을 높이고, PSNR을 평균 3.7% 향상시켰습니다.
+              </li>
+              <li>
+                <strong>렌더링 프레임을 고려한 3DGS 초해상화.</strong>
+                3DGS 렌더링 시 렌더링 프레임을 고려한 초해상화를 적용하는 프로젝트를 진행했습니다.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ───────────── Modutwin 상세 ───────────── -->
       <section id="modutwin" aria-labelledby="modutwin-title">
-        <h2 id="modutwin-title" class="section-title">Modutwin: Pipeline &amp; Contributions</h2>
+        <h2 id="modutwin-title" class="section-title">Modutwin: 파이프라인과 기여</h2>
         <p class="lead">
-          Capturing a whole floor as one 3DGS asset needs long capture paths, large-scale SfM,
-          and full retraining whenever part of the space changes. Modutwin reconstructs each room
-          separately and connects them at doors instead. I contributed to
-          <strong>all four stages</strong> of the pipeline.
+          한 층 전체를 하나의 3DGS 에셋으로 만들면 촬영 경로가 길어지고 대규모 SfM이 필요하며,
+          공간 일부만 바뀌어도 전체를 다시 학습해야 합니다. Modutwin은 방마다 따로 복원한 뒤 문을
+          기준으로 연결합니다. 저는 파이프라인의 <strong>네 단계 모두</strong>에 참여했습니다.
         </p>
 
         <ol class="stages">
@@ -167,23 +199,23 @@
                 width="960"
                 height="538"
                 loading="lazy"
-                alt="Refinement stages of a room-level 3DGS asset"
+                alt="방 단위 3DGS 에셋의 정제 단계"
               />
               <figcaption class="media-hint"></figcaption>
             </figure>
             <div class="stage-body">
-              <h3><span class="stage-no">01</span>3DGS Asset Refinement</h3>
+              <h3><span class="stage-no">01</span>3DGS 에셋 정제</h3>
               <p>
-                Removes exterior Gaussians and those whose rendering extent crosses the room
-                boundary, even when centered inside, then bakes their appearance into boundary mesh
-                textures. Neighboring modules no longer leak into each other after alignment.
+                방 바깥의 Gaussian과, 중심이 방 안에 있더라도 렌더링 범위가 경계면을 넘는 Gaussian을
+                제거하고 그 외관을 경계 메시 텍스처에 베이킹합니다. 정합 후 이웃한 모듈끼리 시각적으로
+                겹치지 않습니다.
               </p>
-              <dl class="metrics" aria-label="Appearance preservation versus original assets">
+              <dl class="metrics" aria-label="원본 에셋 대비 외관 보존 정도">
                 <div><dt>PSNR</dt><dd>30.78 dB</dd></div>
                 <div><dt>SSIM</dt><dd>0.9658</dd></div>
                 <div><dt>LPIPS</dt><dd>0.0552</dd></div>
               </dl>
-              <p class="note">Average over 4 assets, refined vs. original, random indoor viewpoints.</p>
+              <p class="note">에셋 4개 평균, 원본 대비 정제 결과, 무작위 실내 시점에서 렌더링</p>
             </div>
           </li>
 
@@ -194,16 +226,15 @@
                 width="480"
                 height="346"
                 loading="lazy"
-                alt="SAM3-assisted door corner extraction"
+                alt="SAM3를 이용한 문 코너 추출"
               />
               <figcaption class="media-hint"></figcaption>
             </figure>
             <div class="stage-body">
-              <h3><span class="stage-no">02</span>SAM3-Based Door Extraction</h3>
+              <h3><span class="stage-no">02</span>SAM3 기반 문 추출</h3>
               <p>
-                Obtains the door region automatically with SAM3, or manually by clicking door
-                corners, and intersects it with the wall boundary plane to estimate reliable 3D
-                door corners.
+                SAM3로 문 영역을 자동으로 얻거나 문 모서리를 직접 클릭해 지정하고, 이를 벽 경계
+                평면과 교차시켜 신뢰할 수 있는 3D 문 코너를 추정합니다.
               </p>
             </div>
           </li>
@@ -215,15 +246,15 @@
                 width="640"
                 height="385"
                 loading="lazy"
-                alt="Door-based alignment of a new room module"
+                alt="새 방 모듈의 문 기반 정합"
               />
               <figcaption class="media-hint"></figcaption>
             </figure>
             <div class="stage-body">
-              <h3><span class="stage-no">03</span>Door-Based Alignment</h3>
+              <h3><span class="stage-no">03</span>문 기반 정합</h3>
               <p>
-                Computes the transformation between modules from four corresponding door corners
-                and uses it to attach a new room asset to the existing digital twin.
+                대응하는 문 코너 4개로 모듈 간 변환 행렬을 계산하고, 이를 이용해 새 방 에셋을 기존
+                디지털 트윈에 연결합니다.
               </p>
             </div>
           </li>
@@ -235,40 +266,38 @@
                 width="720"
                 height="352"
                 loading="lazy"
-                alt="Opening and closing a door in the aligned digital twin"
+                alt="정합된 디지털 트윈에서 문을 열고 닫는 모습"
               />
               <figcaption class="media-hint"></figcaption>
             </figure>
             <div class="stage-body">
-              <h3><span class="stage-no">04</span>Door Interaction</h3>
+              <h3><span class="stage-no">04</span>문 인터랙션</h3>
               <p>
-                Separates door meshes and Gaussians into independent door assets. Gaussians that
-                cross the door–wall boundary are split, so the door side moves with the door while
-                the wall side stays in the static room.
+                문 메시와 Gaussian을 독립된 문 에셋으로 분리합니다. 문과 벽의 경계를 가로지르는
+                Gaussian은 분할해, 문 쪽은 문과 함께 움직이고 벽 쪽은 정적인 방 에셋에 남도록 합니다.
               </p>
             </div>
           </li>
         </ol>
 
-        <p class="tags" aria-label="Keywords">
+        <p class="tags" aria-label="키워드">
           <span>3D Gaussian Splatting</span>
           <span>SAM3</span>
-          <span>Mesh texture baking</span>
-          <span>3D registration</span>
-          <span>Digital twins</span>
+          <span>메시 텍스처 베이킹</span>
+          <span>3D 정합</span>
+          <span>디지털 트윈</span>
         </p>
       </section>
 
-      <!-- ───────────── MRSR-NeRF overview ───────────── -->
+      <!-- ───────────── MRSR-NeRF 개요 ───────────── -->
       <section id="mrsr-nerf" aria-labelledby="mrsr-title">
-        <h2 id="mrsr-title" class="section-title">MRSR-NeRF: Overview</h2>
+        <h2 id="mrsr-title" class="section-title">MRSR-NeRF: 개요</h2>
         <p class="lead">
-          A NeRF trained on low-resolution images cannot render detail it never saw. MRSR-NeRF
-          uses only the multi-view low-resolution images of the target scene: wherever a region
-          appears magnified in a neighboring view, that view becomes a reference for authentic,
-          multi-view consistent texture transfer.
+          저해상도 이미지로 학습한 NeRF는 본 적 없는 디테일을 렌더링할 수 없습니다. MRSR-NeRF는
+          대상 장면의 다시점 저해상도 이미지만 사용합니다. 어떤 영역이 인접 시점에서 더 크게 보이면
+          그 시점을 참조로 삼아, 실제 텍스처를 다시점 일관성 있게 전달합니다.
         </p>
-        <!-- TODO: add a sentence on which parts of MRSR-NeRF you worked on. -->
+        <!-- TODO: MRSR-NeRF에서 맡은 부분을 한 문장으로 추가 -->
 
         <figure class="media figure-block" data-anim="assets/media/mrsr-comparison.webp">
           <img
@@ -276,12 +305,12 @@
             width="684"
             height="256"
             loading="lazy"
-            alt="Side-by-side renderings from MRSR-NeRF and DiSR-NeRF"
+            alt="MRSR-NeRF와 DiSR-NeRF 렌더링 비교"
           />
           <figcaption class="media-hint"></figcaption>
         </figure>
         <p class="figure-caption">
-          MRSR-NeRF restores fine details with significantly less flickering across views than DiSR-NeRF.
+          MRSR-NeRF는 DiSR-NeRF보다 시점 간 깜빡임이 훨씬 적으면서 세밀한 디테일을 복원합니다.
         </p>
 
         <a class="figure-block pipeline" href="assets/media/mrsr-overview.jpg" target="_blank" rel="noreferrer">
@@ -290,25 +319,25 @@
             width="1800"
             height="396"
             loading="lazy"
-            alt="MRSR-NeRF pipeline: NeRF initialization, reference patch sourcing, SR training and inference, NeRF update"
+            alt="MRSR-NeRF 파이프라인: NeRF 초기화, 참조 패치 탐색, 초해상화 학습 및 추론, NeRF 업데이트"
           />
         </a>
         <ol class="steps">
-          <li><strong>NeRF initialization.</strong> A NeRF trained on the low-resolution images provides depth guidance.</li>
-          <li><strong>Reference patch sourcing.</strong> Magnified reference patches are retrieved from adjacent views via feature matching.</li>
+          <li><strong>NeRF 초기화.</strong> 저해상도 이미지로 학습한 NeRF가 깊이 정보를 제공합니다.</li>
+          <li><strong>참조 패치 탐색.</strong> 특징점 매칭으로 인접 시점에서 확대된 참조 패치를 찾습니다.</li>
           <li>
-            <strong>MRSR training &amp; inference.</strong> A multi-view cross-attention block with depth priors and an
-            adaptive sampling network transfer textures while correcting sub-pixel misalignment.
+            <strong>MRSR 학습 및 추론.</strong> 깊이 사전 정보를 활용한 다시점 교차 어텐션 블록(MCAB)과
+            적응형 샘플링 네트워크(ASN)가 서브픽셀 단위의 어긋남을 보정하며 텍스처를 전달합니다.
           </li>
-          <li><strong>NeRF update.</strong> The NeRF is fine-tuned on the super-resolved images.</li>
+          <li><strong>NeRF 업데이트.</strong> 초해상화된 이미지로 NeRF를 미세 조정합니다.</li>
         </ol>
 
         <div class="table-wrap">
           <table class="results">
-            <caption>4× super-resolution, Instant-NGP backbone for all methods</caption>
+            <caption>4배 초해상화, 모든 방법에 Instant-NGP 백본 사용</caption>
             <thead>
               <tr>
-                <th rowspan="2" scope="col">Method</th>
+                <th rowspan="2" scope="col">방법</th>
                 <th colspan="3" scope="colgroup">LLFF</th>
                 <th colspan="3" scope="colgroup">NeRF-Synthetic</th>
               </tr>
@@ -345,34 +374,34 @@
             </tbody>
           </table>
         </div>
-        <p class="note">NIQE results are listed in the project repository.</p>
+        <p class="note">NIQE 결과는 프로젝트 저장소에서 확인할 수 있습니다.</p>
 
-        <p class="tags" aria-label="Keywords">
+        <p class="tags" aria-label="키워드">
           <span>Neural Radiance Fields</span>
-          <span>Reference-based super-resolution</span>
-          <span>Cross-attention</span>
-          <span>Feature matching</span>
+          <span>참조 기반 초해상화</span>
+          <span>교차 어텐션</span>
+          <span>특징점 매칭</span>
           <span>Instant-NGP</span>
         </p>
       </section>
 
-      <!-- ───────────── Education ───────────── -->
+      <!-- ───────────── 학력 ───────────── -->
       <section aria-labelledby="education-title">
-        <h2 id="education-title" class="section-title">Education</h2>
+        <h2 id="education-title" class="section-title">학력</h2>
         <ul class="entries">
           <li>
             <div class="entry-head">
-              <strong>Sejong University</strong>
-              <span class="entry-meta">2021 – 2026</span>
+              <strong>세종대학교</strong>
+              <span class="entry-meta">2021 – 2027.02 (졸업 예정)</span>
             </div>
-            <p>B.S. in Software · Seoul, Korea</p>
+            <p>소프트웨어학과 학사 · 서울</p>
           </li>
         </ul>
       </section>
 
       <footer class="footer">
         <p>
-          Last updated November 2026 · Layout adapted from
+          최종 업데이트 2026년 11월 · 레이아웃 참고
           <a href="https://github.com/jonbarron/jonbarron.github.io" target="_blank" rel="noreferrer">Jon Barron's website</a>
         </p>
       </footer>
@@ -395,12 +424,12 @@
             img.src = playing ? anim : still;
             figure.classList.toggle("is-playing", playing);
             figure.setAttribute("aria-pressed", String(playing));
-            if (hint) hint.textContent = playing ? "" : canHover ? "Hover to play" : "Tap to play";
+            if (hint) hint.textContent = playing ? "" : canHover ? "마우스를 올리면 재생" : "탭하여 재생";
           };
 
           figure.tabIndex = 0;
           figure.setAttribute("role", "button");
-          figure.setAttribute("aria-label", `Play animation: ${img.alt}`);
+          figure.setAttribute("aria-label", `애니메이션 재생: ${img.alt}`);
           set(false);
 
           if (canHover) {
