@@ -297,6 +297,33 @@ img {
   margin-top: 10px;
 }
 
+.cards-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.card-points {
+  margin: 0;
+  padding-left: 1.1em;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.card-points li + li {
+  margin-top: 6px;
+}
+
+.card-points li::marker {
+  color: var(--faint);
+}
+
+.card-points strong {
+  color: var(--text);
+}
+
 .kv {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -648,6 +675,26 @@ img {
   font-size: 0.95rem;
 }
 
+.paper-contrib {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.paper-contrib span {
+  flex: none;
+  height: fit-content;
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
 /* ───────────── 04 Modutwin ───────────── */
 .lead {
   margin-bottom: 28px;
@@ -879,7 +926,8 @@ img {
     gap: 32px;
   }
 
-  .cards-3 {
+  .cards-3,
+  .cards-2 {
     grid-template-columns: 1fr;
   }
 }
