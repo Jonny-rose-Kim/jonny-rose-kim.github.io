@@ -36,6 +36,7 @@
         <nav aria-label="목차">
           <a href="#profile">프로필</a>
           <a href="#background">배경</a>
+          <a href="#bridge">As-Is → To-Be</a>
           <a href="#research">연구</a>
           <a href="#modutwin">Modutwin</a>
           <a href="#mrsr-nerf">MRSR-NeRF</a>
@@ -253,10 +254,120 @@
         </div>
       </section>
 
-      <!-- ───────────── 03 Research ───────────── -->
-      <section id="research" class="panel" aria-labelledby="research-title">
+      <!-- ───────────── 03 As-Is → To-Be ───────────── -->
+      <section id="bridge" class="panel" aria-labelledby="bridge-title">
         <header class="panel-head">
           <span class="panel-no">03</span>
+          <div>
+            <h2 id="bridge-title" class="panel-title">As-Is → To-Be</h2>
+            <p class="panel-sub">SK인텔릭스 나무엑스의 공간 이해 고도화 흐름과, 그 사이에서 제가 맡을 수 있는 역할</p>
+          </div>
+        </header>
+
+        <div class="bridge">
+          <div class="bridge-col">
+            <h3 class="bridge-head"><span>As-Is</span>지금 나무엑스가 하는 일</h3>
+            <ul class="bridge-list">
+              <li>
+                <strong>웰니스 로봇 상용화</strong>
+                <span>2025.10 출시. 자율주행 공기청정, 비접촉 생체 신호 확인, 음성 대화를 결합한 가정용 AI 로봇 · CES 2026 혁신상</span>
+              </li>
+              <li>
+                <strong>라이다·비전 기반 실내 자율주행</strong>
+                <span>라이다 센싱과 비전 매핑으로 경로를 최적화하고, AI 객체 인식으로 장애물을 감지하며 오염원을 스스로 찾아 이동</span>
+              </li>
+              <li>
+                <strong>집 안을 살피는 생활 서비스</strong>
+                <span>에스원과 함께 출시한 세이프 케어로 집 안을 돌아다니며 특이 사항을 보고</span>
+              </li>
+              <li>
+                <strong>해외 확장과 공간 데이터 경쟁</strong>
+                <span>2026.09 말레이시아 출시와 현지 주거 환경에 맞춘 주행 보정. "가정용 로봇은 결국 데이터 싸움"이라며 가정 내 공간 데이터 구축을 경쟁력으로 제시</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bridge-col is-core">
+            <h3 class="bridge-head"><span>The Bridge</span>관측한 집을 이해 가능한 3D 공간으로</h3>
+            <div class="bridge-map">
+              <span class="chip">3D 공간 복원</span>
+              <span class="chip">Semantic Map</span>
+              <span class="chip">객체 분리</span>
+              <span class="chip">공간 정합</span>
+              <span class="chip">재질·조명</span>
+              <span class="chip">Sim-to-Real</span>
+              <span class="chip">저해상도 보정</span>
+              <span class="chip">품질 평가</span>
+              <div class="core"><span>3DGS</span><span>NeRF</span></div>
+            </div>
+            <p class="bridge-note">
+              로봇이 들어가는 집이 늘어날수록 <span><b>1</b>빠른 3D 공간 복원</span>
+              <span><b>2</b>의미 단위 공간 이해</span> <span><b>3</b>공간 갱신·확장</span>
+              <span><b>4</b>시뮬레이션 기반 검증</span>이 동시에 필요한 구조
+            </p>
+          </div>
+
+          <div class="bridge-col">
+            <h3 class="bridge-head"><span>To-Be</span>앞으로 필요한 공간 이해</h3>
+            <ul class="bridge-list">
+              <li>
+                <strong>지도를 넘어선 3D 공간 표현</strong>
+                <span>주행용 지도를 넘어 집 안 구조와 객체를 사실적인 3D 표현으로 복원</span>
+                <em>2D / 3D Representation Reconstruction</em>
+              </li>
+              <li>
+                <strong>말로 지시하는 공간 이해</strong>
+                <span>"거실 소파 옆으로 와줘" 같은 요청을 객체·방 단위의 의미 지도와 연결</span>
+                <em>Semantic Mapping</em>
+              </li>
+              <li>
+                <strong>형상·재질·조명 추정</strong>
+                <span>조명과 가구 배치가 바뀌어도 같은 공간을 안정적으로 인식</span>
+                <em>Physical Scene Reconstruction · Inverse Rendering</em>
+              </li>
+              <li>
+                <strong>실제 집을 시뮬레이션으로</strong>
+                <span>복원한 공간을 가상 환경에 재현해 조건을 바꿔 가며 주행·서비스를 검증</span>
+                <em>Sim-to-Real · World Modeling</em>
+              </li>
+              <li>
+                <strong>상호작용·조작으로 확장</strong>
+                <span>로봇팔 가사 서비스에 대비해 문·서랍처럼 움직이는 객체와 물리적 상호작용을 이해</span>
+                <em>객체 · 물리량 · 상호작용 추론</em>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roles">
+          <span class="roles-label">My <br />Role</span>
+          <div class="role-card">
+            <h4>Indoor 3D Reconstruction</h4>
+            <p>방 단위 3DGS 에셋을 벽·천장 경계 기준으로 정제하고 텍스처로 베이크한 경험으로, 집 안 공간을 서비스에 바로 쓸 수 있는 3D 표현으로 구성</p>
+          </div>
+          <div class="role-card">
+            <h4>Semantic · Interaction Mapping</h4>
+            <p>SAM3 기반 문 추출, 문 객체 분리·개폐, 문 기반 정합 경험으로 공간을 방·객체·연결 관계 단위로 구조화</p>
+          </div>
+          <div class="role-card">
+            <h4>Robust Rendering &amp; Evaluation</h4>
+            <p>저해상도 다시점 입력을 초해상화(ASN)하고 PSNR·SSIM·LPIPS와 ablation으로 검증한 경험으로, 제한된 관측에서도 품질을 확보하고 정량적으로 평가</p>
+          </div>
+        </div>
+
+        <p class="bridge-source">
+          As-Is는 공개 보도 기준이며, To-Be는 채용 공고의 담당 업무와 보도를 바탕으로 정리한 저의 해석입니다. 참고:
+          <a href="https://sateconomy.co.kr/news/view/1065602084515878" target="_blank" rel="noreferrer">토요경제 2025.10.30</a> ·
+          <a href="https://hellot.net/mobile/article.html?no=106808" target="_blank" rel="noreferrer">헬로티 2025.11.04</a> ·
+          <a href="https://www.hankyung.com/article/2026070685311" target="_blank" rel="noreferrer">한국경제 2026.07.06</a> ·
+          <a href="https://www.etnews.com/20261006000060" target="_blank" rel="noreferrer">전자신문 2026.10.06</a>
+        </p>
+      </section>
+
+      <!-- ───────────── 04 Research ───────────── -->
+      <section id="research" class="panel" aria-labelledby="research-title">
+        <header class="panel-head">
+          <span class="panel-no">04</span>
           <div>
             <h2 id="research-title" class="panel-title">Research</h2>
             <p class="panel-sub">주요 연구 프로젝트</p>
@@ -340,10 +451,10 @@
         </article>
       </section>
 
-      <!-- ───────────── 04 Modutwin ───────────── -->
+      <!-- ───────────── 05 Modutwin ───────────── -->
       <section id="modutwin" class="panel" aria-labelledby="modutwin-title">
         <header class="panel-head">
-          <span class="panel-no">04</span>
+          <span class="panel-no">05</span>
           <div>
             <h2 id="modutwin-title" class="panel-title">Modutwin</h2>
             <p class="panel-sub">3DGS 에셋의 문 기반 정합을 통한 모듈형 실내 디지털 트윈 · KCGS 2026</p>
@@ -550,10 +661,10 @@
         </p>
       </section>
 
-      <!-- ───────────── 05 MRSR-NeRF ───────────── -->
+      <!-- ───────────── 06 MRSR-NeRF ───────────── -->
       <section id="mrsr-nerf" class="panel" aria-labelledby="mrsr-title">
         <header class="panel-head">
-          <span class="panel-no">05</span>
+          <span class="panel-no">06</span>
           <div>
             <h2 id="mrsr-title" class="panel-title">MRSR-NeRF</h2>
             <p class="panel-sub">다시점 참조 기반 NeRF 초해상화 · WACV 2027</p>
