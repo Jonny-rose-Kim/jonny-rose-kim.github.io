@@ -352,9 +352,26 @@ img {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* Role and significance stack on the left; analysis spans the wider right column. */
 .box-grid.findings {
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.5fr) minmax(0, 1fr);
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "role analysis"
+    "meaning analysis";
+  gap: 28px 40px;
+}
+
+.findings .box-col:nth-child(1) {
+  grid-area: role;
+}
+
+.findings .box-col:nth-child(2) {
+  grid-area: analysis;
+}
+
+.findings .box-col:nth-child(3) {
+  grid-area: meaning;
 }
 
 .box-col {
@@ -832,6 +849,7 @@ img {
   margin-top: 8px;
   color: var(--muted);
   font-size: 0.85rem;
+  text-align: center;
 }
 
 .stages {
@@ -1049,6 +1067,14 @@ img {
   .box-grid.findings {
     grid-template-columns: 1fr;
     gap: 22px;
+  }
+
+  .box-grid.findings {
+    grid-template-rows: none;
+    grid-template-areas:
+      "role"
+      "analysis"
+      "meaning";
   }
 
   .flow .box-col + .box-col::before {
