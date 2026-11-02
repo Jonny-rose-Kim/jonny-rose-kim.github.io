@@ -381,7 +381,7 @@ img {
 .flow .box-col + .box-col::before {
   content: "→";
   position: absolute;
-  top: -1px;
+  top: 2px;
   left: -26px;
   color: var(--faint);
   font-size: 0.95rem;
@@ -396,6 +396,10 @@ img {
   color: var(--accent);
   font-size: 0.76rem;
   font-weight: 600;
+}
+
+.flow .box-label {
+  font-size: 0.99rem;
 }
 
 .box-col p {
