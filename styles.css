@@ -265,6 +265,37 @@ img {
   font-weight: 500;
 }
 
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+
+.hero-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.hero-link svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
 .cards-3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
