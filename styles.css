@@ -1037,17 +1037,6 @@ img {
 }
 
 /* ───────────── Footer ───────────── */
-.footer {
-  margin-top: 40px;
-  padding: 0 8px;
-  color: var(--faint);
-  font-size: 0.82rem;
-}
-
-.footer a {
-  color: var(--muted);
-}
-
 /* ───────────── Responsive ───────────── */
 @media (max-width: 920px) {
   .overview {
