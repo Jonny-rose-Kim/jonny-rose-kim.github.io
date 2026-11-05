@@ -260,7 +260,7 @@
           <span class="panel-no">03</span>
           <div>
             <h2 id="bridge-title" class="panel-title" lang="en">From Navigation Map to World Model</h2>
-            <p class="panel-sub">주행을 위한 지도에서, 로봇의 판단과 행동을 뒷받침하는 3D 공간 표현으로</p>
+            <p class="panel-sub">AS IS - TO BE</p>
           </div>
           <div class="target-role">
             <img src="assets/media/sk-intellix-logo.svg" width="107" height="45" alt="SK intellix" />
@@ -268,9 +268,9 @@
           </div>
         </header>
 
-        <div class="bridge-states">
+        <div class="bridge-flow">
           <div class="bridge-state">
-            <span class="box-label">As-Is</span>
+            <span class="box-label">As-Is : SK intellix의 현주소</span>
             <h3 class="bridge-state-title" lang="en">Navigation-Centric Perception</h3>
             <ul class="bridge-list">
               <li>
@@ -292,35 +292,25 @@
             </ul>
           </div>
 
-          <div class="bridge-state is-vision">
-            <span class="box-label">My Vision for To-Be</span>
-            <h3 class="bridge-state-title" lang="en">Spatial Intelligence for Home Robots</h3>
-            <ul class="bridge-list">
-              <li>
-                <strong>Spatial Data Foundation</strong>
-                <span>가정 내 공간 데이터를 서비스 경쟁력의 기반으로 축적</span>
-              </li>
-              <li>
-                <strong>Persistent Semantic Map</strong>
-                <span>방, 객체, 연결 관계를 지도에 결합하고, 가구 이동과 조명 변화에도 전체 재구축 없이 갱신</span>
-              </li>
-              <li>
-                <strong>Physical Scene Understanding</strong>
-                <span>Inverse Rendering으로 형상, 재질, 조명을 분리하고, 문과 서랍 같은 관절 구조를 복원해 Manipulation으로 확장</span>
-              </li>
-              <li>
-                <strong>Real-to-Sim Environment</strong>
-                <span>복원한 집을 시뮬레이션 환경으로 옮겨 Navigation과 Manipulation 정책을 학습하고 검증</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="bridge-span">
-          <span class="box-label">The Bridge</span>
-          <h3 class="bridge-span-title" lang="en">Real-to-Sim Scene Pipeline</h3>
-          <p class="bridge-span-lead">실제 집을 로봇이 학습하고 검증할 수 있는 3D 환경으로</p>
-          <ol class="bridge-rail">
+          <div class="bridge-core">
+            <svg class="bridge-arch" viewBox="0 0 300 64" preserveAspectRatio="none" aria-hidden="true">
+              <g class="arch-built">
+                <path d="M0 58 Q75 9 150 9" />
+                <path d="M0 58 H150" />
+                <path d="M50 30.8 V58 M100 14.4 V58 M150 9 V58" />
+              </g>
+              <g class="arch-ahead">
+                <path d="M150 9 Q225 9 300 58" />
+                <path d="M150 58 H300" />
+                <path d="M200 14.4 V58 M250 30.8 V58" />
+              </g>
+            </svg>
+            <div class="bridge-core-head">
+              <span class="box-label">Bridge : 나의 역량</span>
+              <h3 class="bridge-state-title" lang="en">Real-to-Sim Scene Pipeline</h3>
+              <p class="bridge-core-lead">실제 집을 로봇이 학습하고 검증할 수 있는 3D 환경으로</p>
+            </div>
+            <ol class="bridge-rail">
             <li class="rail-step">
               <span class="rail-status">Track Record</span>
               <h4 lang="en">Reconstruct</h4>
@@ -346,6 +336,30 @@
               <p class="rail-proof">다음 과제</p>
             </li>
           </ol>
+          </div>
+
+          <div class="bridge-state is-tobe">
+            <span class="box-label">To-Be</span>
+            <h3 class="bridge-state-title" lang="en">Spatial Intelligence for Home Robots</h3>
+            <ul class="bridge-list">
+              <li>
+                <strong>Spatial Data Foundation</strong>
+                <span>가정 내 공간 데이터를 서비스 경쟁력의 기반으로 축적</span>
+              </li>
+              <li>
+                <strong>Persistent Semantic Map</strong>
+                <span>방, 객체, 연결 관계를 지도에 결합하고, 가구 이동과 조명 변화에도 전체 재구축 없이 갱신</span>
+              </li>
+              <li>
+                <strong>Physical Scene Understanding</strong>
+                <span>Inverse Rendering으로 형상, 재질, 조명을 분리하고, 문과 서랍 같은 관절 구조를 복원해 Manipulation으로 확장</span>
+              </li>
+              <li>
+                <strong>Real-to-Sim Environment</strong>
+                <span>복원한 집을 시뮬레이션 환경으로 옮겨 Navigation과 Manipulation 정책을 학습하고 검증</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div class="strength">

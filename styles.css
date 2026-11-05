@@ -689,25 +689,31 @@ img {
   font-weight: 400;
 }
 
-.bridge-states {
+.bridge-flow {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.14fr) minmax(0, 1fr);
 }
 
 .bridge-state {
-  padding: 24px 26px 26px;
+  padding: 24px 22px 26px;
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--panel);
 }
 
-.bridge-state.is-vision {
+.bridge-state.is-tobe {
   border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
   background: var(--accent-soft);
 }
 
-.is-vision .box-label {
+.bridge-flow .box-label {
+  margin-bottom: 10px;
+  padding: 3px 11px;
+  font-size: 1.04rem;
+  line-height: 1.45;
+}
+
+.is-tobe .box-label {
   background: var(--surface);
 }
 
@@ -715,11 +721,10 @@ img {
   white-space: nowrap;
 }
 
-.bridge-state-title,
-.bridge-span-title {
+.bridge-state-title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.12rem;
+  font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -736,7 +741,7 @@ img {
   border-top: 1px solid var(--border);
 }
 
-.is-vision .bridge-list li + li {
+.is-tobe .bridge-list li + li {
   border-top-color: color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
@@ -755,51 +760,89 @@ img {
   line-height: 1.6;
 }
 
-.bridge-span {
-  margin-top: 36px;
+/* The span runs from one box edge to the other: built on the As-Is side, dashed toward To-Be. */
+.bridge-core {
+  min-width: 0;
+  padding: 0 20px;
 }
 
-.bridge-span-title {
-  font-size: 1.3rem;
+.bridge-arch {
+  display: block;
+  width: calc(100% + 40px);
+  height: 64px;
+  margin: 18px -20px 16px;
+  overflow: visible;
 }
 
-.bridge-span-lead {
-  margin: 2px 0 0;
+.bridge-arch path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
+.arch-built path {
+  stroke: var(--accent);
+}
+
+.arch-ahead path {
+  stroke: var(--faint);
+  stroke-dasharray: 5 5;
+}
+
+.bridge-arch path:nth-child(2) {
+  stroke-width: 4px;
+}
+
+.bridge-arch path:nth-child(3) {
+  stroke-width: 1px;
+}
+
+.bridge-core-head {
+  position: relative;
+  text-align: center;
+}
+
+.bridge-core-lead {
+  margin: 4px 0 0;
+  text-wrap: balance;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.89rem;
+  line-height: 1.6;
 }
 
-/* The rail reads as a built span: solid where work exists, dashed where it is still ahead. */
 .bridge-rail {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 26px 0 0;
+  margin: 22px 0 0;
   padding: 0;
   list-style: none;
 }
 
 .rail-step {
   position: relative;
-  padding: 28px 22px 0 0;
+  padding: 0 0 18px 26px;
 }
 
 .rail-step:last-child {
-  padding-right: 0;
+  padding-bottom: 0;
 }
 
 .rail-step::before {
   content: "";
   position: absolute;
   top: 6px;
-  right: 0;
-  left: 0;
-  border-top: 2px solid var(--accent);
+  bottom: -6px;
+  left: 6px;
+  border-left: 2px solid var(--accent);
+}
+
+.rail-step:last-child::before {
+  bottom: 0;
 }
 
 .rail-step::after {
   content: "";
   position: absolute;
-  top: 0;
+  top: 5px;
   left: 0;
   width: 14px;
   height: 14px;
@@ -809,7 +852,7 @@ img {
 }
 
 .rail-step.is-next::before {
-  border-top: 2px dashed var(--faint);
+  border-left: 2px dashed var(--faint);
 }
 
 .rail-step.is-next::after {
@@ -828,8 +871,8 @@ img {
 }
 
 .rail-step h4 {
-  margin: 0 0 6px;
-  font-size: 1.02rem;
+  margin: 0 0 4px;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -842,7 +885,7 @@ img {
 }
 
 .rail-step .rail-proof {
-  margin-top: 8px;
+  margin-top: 6px;
   color: var(--text);
   font-size: 0.8rem;
   font-weight: 500;
@@ -853,8 +896,45 @@ img {
   font-weight: 400;
 }
 
-.bridge-span + .strength {
-  margin-top: 30px;
+.bridge-flow + .strength {
+  margin-top: 28px;
+}
+
+/* Stacked: the span turns vertical and runs from the As-Is box down into the To-Be box. */
+@media (max-width: 1000px) {
+  .bridge-flow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bridge-state {
+    padding: 24px 26px 26px;
+  }
+
+  .bridge-core {
+    padding: 0 0 0 4px;
+  }
+
+  .bridge-arch {
+    display: none;
+  }
+
+  .bridge-core-head {
+    padding: 22px 0 0 26px;
+    text-align: left;
+  }
+
+  .bridge-core-head::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: -22px;
+    left: 6px;
+    border-left: 2px solid var(--accent);
+  }
+
+  .rail-step:last-child {
+    padding-bottom: 24px;
+  }
 }
 
 .bridge-source {
@@ -1296,41 +1376,6 @@ img {
 
   .flow .box-col + .box-col {
     padding-top: 6px;
-  }
-
-  .bridge-states {
-    grid-template-columns: 1fr;
-  }
-
-  .bridge-rail {
-    grid-template-columns: 1fr;
-  }
-
-  .rail-step,
-  .rail-step:last-child {
-    padding: 0 0 24px 30px;
-  }
-
-  .rail-step:last-child {
-    padding-bottom: 0;
-  }
-
-  .rail-step::before {
-    top: 6px;
-    right: auto;
-    bottom: -6px;
-    left: 6px;
-    border-top: 0;
-    border-left: 2px solid var(--accent);
-  }
-
-  .rail-step:last-child::before {
-    bottom: 0;
-  }
-
-  .rail-step.is-next::before {
-    border-top: 0;
-    border-left: 2px dashed var(--faint);
   }
 }
 
