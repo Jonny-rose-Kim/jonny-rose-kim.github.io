@@ -834,18 +834,10 @@ img {
   font-size: 1.05rem;
 }
 
-.bridge-note {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.87rem;
-  line-height: 1.7;
-  text-align: center;
-}
-
 .bridge-needs {
-  width: fit-content;
-  margin: 6px auto 0;
+  margin: 0;
   padding: 0;
+  text-align: center;
   color: var(--text);
   font-size: 0.89rem;
   font-weight: 500;
