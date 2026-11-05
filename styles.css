@@ -661,6 +661,213 @@ img {
   font-weight: 500;
 }
 
+/* ───────────── As-Is / To-Be ───────────── */
+.target-role {
+  flex: none;
+  margin-left: auto;
+  text-align: right;
+}
+
+.target-role img {
+  width: auto;
+  height: 46px;
+  margin-left: auto;
+}
+
+.target-role p {
+  margin: 8px 0 0;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.target-role span {
+  display: block;
+  color: var(--faint);
+  font-size: 0.74rem;
+  font-weight: 400;
+}
+
+.bridge-states {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.bridge-state {
+  padding: 24px 26px 26px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.bridge-state.is-vision {
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+  background: var(--accent-soft);
+}
+
+.is-vision .box-label {
+  background: var(--surface);
+}
+
+.nb {
+  white-space: nowrap;
+}
+
+.bridge-state-title,
+.bridge-span-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.bridge-list {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bridge-list li + li {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.is-vision .bridge-list li + li {
+  border-top-color: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.bridge-list strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.bridge-list span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.89rem;
+  line-height: 1.6;
+}
+
+.bridge-span {
+  margin-top: 36px;
+}
+
+.bridge-span-title {
+  font-size: 1.3rem;
+}
+
+.bridge-span-lead {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* The rail reads as a built span: solid where work exists, dashed where it is still ahead. */
+.bridge-rail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-step {
+  position: relative;
+  padding: 28px 22px 0 0;
+}
+
+.rail-step:last-child {
+  padding-right: 0;
+}
+
+.rail-step::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 0;
+  left: 0;
+  border-top: 2px solid var(--accent);
+}
+
+.rail-step::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.rail-step.is-next::before {
+  border-top: 2px dashed var(--faint);
+}
+
+.rail-step.is-next::after {
+  border-color: var(--faint);
+  background: var(--surface);
+}
+
+.rail-status {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.is-next .rail-status {
+  color: var(--muted);
+}
+
+.rail-step h4 {
+  margin: 0 0 6px;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.rail-step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.6;
+}
+
+.rail-step .rail-proof {
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.is-next .rail-proof {
+  color: var(--faint);
+  font-weight: 400;
+}
+
+.bridge-span + .strength {
+  margin-top: 30px;
+}
+
+.bridge-source {
+  margin: 14px 0 0;
+  color: var(--faint);
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.bridge-source a {
+  color: var(--muted);
+}
+
 /* ───────────── Media (hover / tap to play) ───────────── */
 .media {
   position: relative;
@@ -1090,6 +1297,41 @@ img {
   .flow .box-col + .box-col {
     padding-top: 6px;
   }
+
+  .bridge-states {
+    grid-template-columns: 1fr;
+  }
+
+  .bridge-rail {
+    grid-template-columns: 1fr;
+  }
+
+  .rail-step,
+  .rail-step:last-child {
+    padding: 0 0 24px 30px;
+  }
+
+  .rail-step:last-child {
+    padding-bottom: 0;
+  }
+
+  .rail-step::before {
+    top: 6px;
+    right: auto;
+    bottom: -6px;
+    left: 6px;
+    border-top: 0;
+    border-left: 2px solid var(--accent);
+  }
+
+  .rail-step:last-child::before {
+    bottom: 0;
+  }
+
+  .rail-step.is-next::before {
+    border-top: 0;
+    border-left: 2px dashed var(--faint);
+  }
 }
 
 @media (max-width: 720px) {
@@ -1111,12 +1353,32 @@ img {
     margin-bottom: 24px;
   }
 
-  .box {
+  .box,
+  .bridge-state {
     padding: 22px 18px;
   }
 
   .panel-title {
     font-size: 1.3rem;
+  }
+
+  .bridge-head {
+    flex-wrap: wrap;
+  }
+
+  .bridge-head > div:not(.target-role) {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .target-role {
+    width: 100%;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .target-role img {
+    margin-left: 0;
   }
 
   .hero {

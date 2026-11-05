@@ -36,6 +36,7 @@
         <nav aria-label="목차">
           <a href="#profile">프로필</a>
           <a href="#background">배경</a>
+          <a href="#bridge">As-Is / To-Be</a>
           <a href="#research">연구</a>
           <a href="#modutwin">Modutwin</a>
           <a href="#mrsr-nerf">MRSR-NeRF</a>
@@ -163,7 +164,7 @@
               </div>
               <div class="tool">
                 <h4>Digital Twin</h4>
-                <p>3DGS 에셋 정제, 메시 텍스처 베이킹, 문 기반 정합, 인터랙션</p>
+                <p>High-Quality 3DGS Asset, Interactive 3DGS</p>
               </div>
               <div class="tool">
                 <h4>Evaluation · Environment</h4>
@@ -253,10 +254,121 @@
         </div>
       </section>
 
-      <!-- ───────────── 03 Research ───────────── -->
+      <!-- ───────────── 03 As-Is / To-Be ───────────── -->
+      <section id="bridge" class="panel" aria-labelledby="bridge-title">
+        <header class="panel-head bridge-head">
+          <span class="panel-no">03</span>
+          <div>
+            <h2 id="bridge-title" class="panel-title" lang="en">From Navigation Map to World Model</h2>
+            <p class="panel-sub">주행을 위한 지도에서, 로봇의 판단과 행동을 뒷받침하는 3D 공간 표현으로</p>
+          </div>
+          <div class="target-role">
+            <img src="assets/media/sk-intellix-logo.svg" width="107" height="45" alt="SK intellix" />
+            <p><span>지원 직무</span>2D/3D 장면 재구성 엔지니어</p>
+          </div>
+        </header>
+
+        <div class="bridge-states">
+          <div class="bridge-state">
+            <span class="box-label">As-Is</span>
+            <h3 class="bridge-state-title" lang="en">Navigation-Centric Perception</h3>
+            <ul class="bridge-list">
+              <li>
+                <strong>Multi-Sensor SLAM</strong>
+                <span>LiDAR, ToF, 적외선, 카메라로 실내 지도를 구축하고, 수시로 바뀌는 가정 환경에서 자기 위치를 추정하며 주행</span>
+              </li>
+              <li>
+                <strong>Obstacle-Aware Navigation</strong>
+                <span>AI 객체 인식으로 전선, 단차 등 다양한 장애물을 감지하고 회피</span>
+              </li>
+              <li>
+                <strong>Home Patrol Service</strong>
+                <span>집 안을 순회하며 특이 사항을 보고하는 세이프 케어</span>
+              </li>
+              <li>
+                <strong>Environment Adaptation</strong>
+                <span>말레이시아 출시에 맞춰 카펫 환경 중심으로 주행 보정</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bridge-state is-vision">
+            <span class="box-label">My Vision for To-Be</span>
+            <h3 class="bridge-state-title" lang="en">Spatial Intelligence for Home Robots</h3>
+            <ul class="bridge-list">
+              <li>
+                <strong>Spatial Data Foundation</strong>
+                <span>가정 내 공간 데이터를 서비스 경쟁력의 기반으로 축적</span>
+              </li>
+              <li>
+                <strong>Persistent Semantic Map</strong>
+                <span>방, 객체, 연결 관계를 지도에 결합하고, 가구 이동과 조명 변화에도 전체 재구축 없이 갱신</span>
+              </li>
+              <li>
+                <strong>Physical Scene Understanding</strong>
+                <span>Inverse Rendering으로 형상, 재질, 조명을 분리하고, 문과 서랍 같은 관절 구조를 복원해 Manipulation으로 확장</span>
+              </li>
+              <li>
+                <strong>Real-to-Sim Environment</strong>
+                <span>복원한 집을 시뮬레이션 환경으로 옮겨 Navigation과 Manipulation 정책을 학습하고 검증</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bridge-span">
+          <span class="box-label">The Bridge</span>
+          <h3 class="bridge-span-title" lang="en">Real-to-Sim Scene Pipeline</h3>
+          <p class="bridge-span-lead">실제 집을 로봇이 학습하고 검증할 수 있는 3D 환경으로</p>
+          <ol class="bridge-rail">
+            <li class="rail-step">
+              <span class="rail-status">Track Record</span>
+              <h4 lang="en">Reconstruct</h4>
+              <p>3DGS·NeRF 기반 장면 복원, 키프레임 선택, 서브픽셀 정렬 보정(ASN)으로 제한된 관측에서의 복원 품질 개선</p>
+              <p class="rail-proof">3DGS 키프레임 연구, <a href="#mrsr-nerf">MRSR-NeRF</a> (WACV 2027)</p>
+            </li>
+            <li class="rail-step">
+              <span class="rail-status">Track Record</span>
+              <h4 lang="en">Structure</h4>
+              <p>경계면 기준 Gaussian 정제와 메시 텍스처 베이킹, SAM3 기반 문 추출, <span class="nb">4-corner</span> 대응 기반 모듈 정합으로 방 단위 3D 표현 구현</p>
+              <p class="rail-proof"><a href="#modutwin">Modutwin</a> (KCGS 2026)</p>
+            </li>
+            <li class="rail-step is-next">
+              <span class="rail-status">Next Step</span>
+              <h4 lang="en">Go Online</h4>
+              <p>오프라인 SfM 기반 복원을 <span class="nb">RGB-D</span>·LiDAR SLAM 기반 온라인 복원으로 확장</p>
+              <p class="rail-proof">다음 과제</p>
+            </li>
+            <li class="rail-step is-next">
+              <span class="rail-status">Next Step</span>
+              <h4 lang="en">Simulate</h4>
+              <p>시각 표현(3DGS)과 충돌 표현(Mesh)을 분리해 시뮬레이터로 이관하고, 주행 학습·검증 환경 구축</p>
+              <p class="rail-proof">다음 과제</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="strength">
+          <span class="strength-label">역할</span>
+          <p>
+            3D 복원 연구로 쌓은 표현, 정합, 평가 역량을 바탕으로, 로봇이 집을 이해하는 공간 표현을
+            학습과 검증 환경까지 잇겠습니다.
+          </p>
+        </div>
+
+        <p class="bridge-source">
+          참고:
+          <a href="https://news.mtn.co.kr/news-detail/2026032715133122310" target="_blank" rel="noreferrer">MTN 2026.03.27</a>,
+          <a href="https://hellot.net/mobile/article.html?no=106808" target="_blank" rel="noreferrer">헬로티 2025.11.04</a>,
+          <a href="https://www.hankyung.com/article/2026070685311" target="_blank" rel="noreferrer">한국경제 2026.07.06</a>,
+          <a href="https://www.etnews.com/20261006000060" target="_blank" rel="noreferrer">전자신문 2026.10.06</a>
+        </p>
+      </section>
+
+      <!-- ───────────── 04 Research ───────────── -->
       <section id="research" class="panel" aria-labelledby="research-title">
         <header class="panel-head">
-          <span class="panel-no">03</span>
+          <span class="panel-no">04</span>
           <div>
             <h2 id="research-title" class="panel-title">Research</h2>
             <p class="panel-sub">주요 연구 프로젝트</p>
@@ -340,10 +452,10 @@
         </article>
       </section>
 
-      <!-- ───────────── 04 Modutwin ───────────── -->
+      <!-- ───────────── 05 Modutwin ───────────── -->
       <section id="modutwin" class="panel" aria-labelledby="modutwin-title">
         <header class="panel-head">
-          <span class="panel-no">04</span>
+          <span class="panel-no">05</span>
           <div>
             <h2 id="modutwin-title" class="panel-title">Modutwin</h2>
             <p class="panel-sub">3DGS 에셋의 문 기반 정합을 통한 모듈형 실내 디지털 트윈 · KCGS 2026</p>
@@ -550,10 +662,10 @@
         </p>
       </section>
 
-      <!-- ───────────── 05 MRSR-NeRF ───────────── -->
+      <!-- ───────────── 06 MRSR-NeRF ───────────── -->
       <section id="mrsr-nerf" class="panel" aria-labelledby="mrsr-title">
         <header class="panel-head">
-          <span class="panel-no">05</span>
+          <span class="panel-no">06</span>
           <div>
             <h2 id="mrsr-title" class="panel-title">MRSR-NeRF</h2>
             <p class="panel-sub">다시점 참조 기반 NeRF 초해상화 · WACV 2027</p>
