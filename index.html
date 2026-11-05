@@ -259,19 +259,16 @@
         <header class="panel-head bridge-head">
           <span class="panel-no">03</span>
           <div>
-            <h2 id="bridge-title" class="panel-title" lang="en">From Navigation Map to World Model</h2>
-            <p class="panel-sub">AS IS - TO BE</p>
+            <h2 id="bridge-title" class="panel-title" lang="en">AS-IS → TO-BE</h2>
+            <p class="panel-sub">SK intellix 나무엑스의 공간 이해 고도화 흐름과 2D/3D 장면 재구성 엔지니어로서의 기여 가능성</p>
           </div>
-          <div class="target-role">
-            <img src="assets/media/sk-intellix-logo.svg" width="107" height="45" alt="SK intellix" />
-            <p><span>지원 직무</span>2D/3D 장면 재구성 엔지니어</p>
-          </div>
+          <img class="bridge-logo" src="assets/media/sk-intellix-logo.svg" width="107" height="45" alt="SK intellix" />
         </header>
 
         <div class="bridge-flow">
           <div class="bridge-state">
-            <span class="box-label">As-Is : SK intellix의 현주소</span>
-            <h3 class="bridge-state-title" lang="en">Navigation-Centric Perception</h3>
+            <h3 class="bridge-state-title">As-Is : <span class="bridge-nowrap">SK intellix의 현주소</span></h3>
+            <p class="bridge-state-sub" lang="en">Navigation-Centric Perception</p>
             <ul class="bridge-list">
               <li>
                 <strong>Multi-Sensor SLAM</strong>
@@ -293,54 +290,28 @@
           </div>
 
           <div class="bridge-core">
-            <svg class="bridge-arch" viewBox="0 0 300 64" preserveAspectRatio="none" aria-hidden="true">
-              <g class="arch-built">
-                <path d="M0 58 Q75 9 150 9" />
-                <path d="M0 58 H150" />
-                <path d="M50 30.8 V58 M100 14.4 V58 M150 9 V58" />
-              </g>
-              <g class="arch-ahead">
-                <path d="M150 9 Q225 9 300 58" />
-                <path d="M150 58 H300" />
-                <path d="M200 14.4 V58 M250 30.8 V58" />
-              </g>
-            </svg>
-            <div class="bridge-core-head">
-              <span class="box-label">Bridge : 나의 역량</span>
-              <h3 class="bridge-state-title" lang="en">Real-to-Sim Scene Pipeline</h3>
-              <p class="bridge-core-lead">실제 집을 로봇이 학습하고 검증할 수 있는 3D 환경으로</p>
-            </div>
-            <ol class="bridge-rail">
-            <li class="rail-step">
-              <span class="rail-status">Track Record</span>
-              <h4 lang="en">Reconstruct</h4>
-              <p>3DGS·NeRF 기반 장면 복원, 키프레임 선택, 서브픽셀 정렬 보정(ASN)으로 제한된 관측에서의 복원 품질 개선</p>
-              <p class="rail-proof">3DGS 키프레임 연구, <a href="#mrsr-nerf">MRSR-NeRF</a> (WACV 2027)</p>
-            </li>
-            <li class="rail-step">
-              <span class="rail-status">Track Record</span>
-              <h4 lang="en">Structure</h4>
-              <p>경계면 기준 Gaussian 정제와 메시 텍스처 베이킹, SAM3 기반 문 추출, <span class="nb">4-corner</span> 대응 기반 모듈 정합으로 방 단위 3D 표현 구현</p>
-              <p class="rail-proof"><a href="#modutwin">Modutwin</a> (KCGS 2026)</p>
-            </li>
-            <li class="rail-step is-next">
-              <span class="rail-status">Next Step</span>
-              <h4 lang="en">Go Online</h4>
-              <p>오프라인 SfM 기반 복원을 <span class="nb">RGB-D</span>·LiDAR SLAM 기반 온라인 복원으로 확장</p>
-              <p class="rail-proof">다음 과제</p>
-            </li>
-            <li class="rail-step is-next">
-              <span class="rail-status">Next Step</span>
-              <h4 lang="en">Simulate</h4>
-              <p>시각 표현(3DGS)과 충돌 표현(Mesh)을 분리해 시뮬레이터로 이관하고, 주행 학습·검증 환경 구축</p>
-              <p class="rail-proof">다음 과제</p>
-            </li>
-          </ol>
+            <h3 class="bridge-core-title">Bridge : 나의 역량</h3>
+            <ul class="hex-grid" lang="en">
+              <li><span>Keyframe<br />Selection</span></li>
+              <li><span>Gaussian<br />Refinement</span></li>
+              <li><span>Texture<br />Baking</span></li>
+              <li><span>SAM3<br />Extraction</span></li>
+              <li class="is-core"><span>3DGS</span></li>
+              <li class="is-core"><span>NeRF</span></li>
+              <li><span>Adaptive<br />Sampling</span></li>
+              <li><span>Door-Based<br />Alignment</span></li>
+              <li><span>Interactive<br />3DGS</span></li>
+              <li><span>Quality<br />Evaluation</span></li>
+            </ul>
+            <p class="bridge-note">
+              로봇이 들어가는 집이 늘어날수록 <span>① 빠른 3D 공간 복원</span> <span>② 의미 단위 공간 이해</span>
+              <span>③ 공간 갱신·확장</span> <span>④ 시뮬레이션 기반 검증</span>이 동시에 필요한 구조
+            </p>
           </div>
 
           <div class="bridge-state is-tobe">
-            <span class="box-label">To-Be</span>
-            <h3 class="bridge-state-title" lang="en">Spatial Intelligence for Home Robots</h3>
+            <h3 class="bridge-state-title">To-Be</h3>
+            <p class="bridge-state-sub" lang="en">Spatial Intelligence for Home Robots</p>
             <ul class="bridge-list">
               <li>
                 <strong>Spatial Data Foundation</strong>
@@ -362,12 +333,21 @@
           </div>
         </div>
 
-        <div class="strength">
-          <span class="strength-label">역할</span>
-          <p>
-            3D 복원 연구로 쌓은 표현, 정합, 평가 역량을 바탕으로, 로봇이 집을 이해하는 공간 표현을
-            학습과 검증 환경까지 잇겠습니다.
-          </p>
+        <div class="roles">
+          <p class="roles-label" lang="en">My Role</p>
+          <div class="role">
+            <h4 lang="en">Indoor 3D Reconstruction</h4>
+            <p>방 단위 3DGS 에셋을 경계면 기준으로 정제하고 텍스처로 베이킹한 경험으로, 실내 공간을 깨끗한 모듈형 3D 표현으로 구성</p>
+          </div>
+          <div class="role">
+            <h4 lang="en">Scene Structuring &amp; Interaction</h4>
+            <p>SAM3 기반 문 추출, 문 코너 4개 기반 정합, 문 개폐 구현 경험으로 공간을 방과 문 단위로 구조화</p>
+          </div>
+          <div class="role">
+            <h4 lang="en">Rendering &amp; Evaluation</h4>
+            <p>ASN으로 서브픽셀 어긋남을 보정하고 PSNR, SSIM, LPIPS와 ablation으로 검증한 경험으로, 제한된 관측의 복원 품질을 개선하고 정량 평가</p>
+          </div>
+          <p class="roles-next"><strong lang="en">Next Step</strong>복원한 공간을 시뮬레이터로 옮겨 로봇의 학습·검증 환경으로 확장</p>
         </div>
 
         <p class="bridge-source">

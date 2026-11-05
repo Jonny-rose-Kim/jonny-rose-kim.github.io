@@ -662,75 +662,64 @@ img {
 }
 
 /* ───────────── As-Is / To-Be ───────────── */
-.target-role {
+.bridge-logo {
   flex: none;
-  margin-left: auto;
-  text-align: right;
-}
-
-.target-role img {
   width: auto;
   height: 46px;
   margin-left: auto;
 }
 
-.target-role p {
-  margin: 8px 0 0;
-  color: var(--text);
-  font-size: 0.82rem;
-  font-weight: 500;
-  line-height: 1.45;
-}
-
-.target-role span {
-  display: block;
-  color: var(--faint);
-  font-size: 0.74rem;
-  font-weight: 400;
-}
-
 .bridge-flow {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.14fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.22fr) minmax(0, 1fr);
 }
 
 .bridge-state {
+  position: relative;
+  z-index: 1;
   padding: 24px 22px 26px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  border: 1.5px solid color-mix(in srgb, var(--accent) 28%, var(--border));
+  border-radius: 22px;
   background: var(--panel);
 }
 
 .bridge-state.is-tobe {
-  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
   background: var(--accent-soft);
 }
 
-.bridge-flow .box-label {
-  margin-bottom: 10px;
-  padding: 3px 11px;
-  font-size: 1.04rem;
-  line-height: 1.45;
-}
-
-.is-tobe .box-label {
-  background: var(--surface);
-}
-
-.nb {
-  white-space: nowrap;
+.bridge-state-title,
+.bridge-core-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-wrap: balance;
 }
 
 .bridge-state-title {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 600;
-  line-height: 1.4;
+  color: var(--text);
+}
+
+.bridge-nowrap {
+  white-space: nowrap;
+}
+
+.bridge-core-title {
+  color: var(--accent);
+}
+
+.bridge-state-sub {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .bridge-list {
-  margin: 16px 0 0;
+  margin: 18px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -760,150 +749,160 @@ img {
   line-height: 1.6;
 }
 
-/* The span runs from one box edge to the other: built on the As-Is side, dashed toward To-Be. */
 .bridge-core {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-width: 0;
-  padding: 0 20px;
+  padding: 0 14px;
 }
 
-.bridge-arch {
-  display: block;
-  width: calc(100% + 40px);
-  height: 64px;
-  margin: 18px -20px 16px;
-  overflow: visible;
-}
-
-.bridge-arch path {
-  fill: none;
-  stroke-linecap: round;
-  stroke-width: 2px;
-  vector-effect: non-scaling-stroke;
-}
-
-.arch-built path {
-  stroke: var(--accent);
-}
-
-.arch-ahead path {
-  stroke: var(--faint);
-  stroke-dasharray: 5 5;
-}
-
-.bridge-arch path:nth-child(2) {
-  stroke-width: 4px;
-}
-
-.bridge-arch path:nth-child(3) {
-  stroke-width: 1px;
-}
-
-.bridge-core-head {
+/* A 3-4-3 honeycomb: two core hexes ringed by the eight skills built around them. */
+.hex-grid {
   position: relative;
-  text-align: center;
-}
-
-.bridge-core-lead {
-  margin: 4px 0 0;
-  text-wrap: balance;
-  color: var(--muted);
-  font-size: 0.89rem;
-  line-height: 1.6;
-}
-
-.bridge-rail {
-  margin: 22px 0 0;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  margin: 22px 0 20px;
   padding: 0;
   list-style: none;
 }
 
-.rail-step {
+/* The line that joins the two boxes through the honeycomb. */
+.hex-grid::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -14px;
+  left: -14px;
+  border-top: 2px solid color-mix(in srgb, var(--accent) 55%, var(--border));
+}
+
+.hex-grid li {
   position: relative;
-  padding: 0 0 18px 26px;
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1.1547;
+  background: var(--border-strong);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  transform: scale(0.97);
 }
 
-.rail-step:last-child {
-  padding-bottom: 0;
-}
-
-.rail-step::before {
+.hex-grid li::before {
   content: "";
   position: absolute;
-  top: 6px;
-  bottom: -6px;
-  left: 6px;
-  border-left: 2px solid var(--accent);
+  inset: 1.5px;
+  background: var(--surface);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 }
 
-.rail-step:last-child::before {
-  bottom: 0;
+.hex-grid li:nth-child(1),
+.hex-grid li:nth-child(8) {
+  grid-column: 2 / span 2;
 }
 
-.rail-step::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 0;
-  width: 14px;
-  height: 14px;
-  border: 2px solid var(--accent);
-  border-radius: 50%;
+.hex-grid li:nth-child(4) {
+  grid-column: 1 / span 2;
+}
+
+/* Rows interlock by a quarter of a hex height. */
+.hex-grid li:nth-child(n + 4) {
+  margin-top: -28.87%;
+}
+
+.hex-grid li span {
+  position: relative;
+  color: var(--text);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.hex-grid li.is-core {
   background: var(--accent);
 }
 
-.rail-step.is-next::before {
-  border-left: 2px dashed var(--faint);
+.hex-grid li.is-core::before {
+  background: var(--accent-soft);
 }
 
-.rail-step.is-next::after {
-  border-color: var(--faint);
-  background: var(--surface);
-}
-
-.rail-status {
+.hex-grid li.is-core span {
   color: var(--accent);
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
 }
 
-.is-next .rail-status {
+.bridge-note {
+  margin: 0;
   color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.7;
+  text-align: center;
 }
 
-.rail-step h4 {
-  margin: 0 0 4px;
-  font-size: 1rem;
+.bridge-note span {
+  white-space: nowrap;
+}
+
+.roles {
+  display: grid;
+  grid-template-columns: auto repeat(3, minmax(0, 1fr));
+  gap: 14px 26px;
+  align-items: start;
+  margin-top: 22px;
+  padding: 22px 26px;
+  border: 1.5px solid color-mix(in srgb, var(--accent) 28%, var(--border));
+  border-radius: 18px;
+  background: var(--panel);
+}
+
+.roles-label {
+  grid-row: span 2;
+  width: min-content;
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.25;
 }
 
-.rail-step p {
+.role h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.role p {
   margin: 0;
   color: var(--muted);
   font-size: 0.87rem;
   line-height: 1.6;
 }
 
-.rail-step .rail-proof {
-  margin-top: 6px;
+.roles-next {
+  grid-column: 2 / -1;
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-strong);
+  color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.6;
+}
+
+.roles-next strong {
+  margin-right: 10px;
   color: var(--text);
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.is-next .rail-proof {
-  color: var(--faint);
-  font-weight: 400;
-}
-
-.bridge-flow + .strength {
-  margin-top: 28px;
-}
-
-/* Stacked: the span turns vertical and runs from the As-Is box down into the To-Be box. */
 @media (max-width: 1000px) {
   .bridge-flow {
     grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
   }
 
   .bridge-state {
@@ -911,29 +910,31 @@ img {
   }
 
   .bridge-core {
-    padding: 0 0 0 4px;
+    padding: 0;
   }
 
-  .bridge-arch {
+  .hex-grid {
+    width: 100%;
+    max-width: 420px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .hex-grid::before {
     display: none;
   }
 
-  .bridge-core-head {
-    padding: 22px 0 0 26px;
-    text-align: left;
+  .roles {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .bridge-core-head::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: -22px;
-    left: 6px;
-    border-left: 2px solid var(--accent);
+  .roles-label {
+    grid-row: auto;
+    width: auto;
   }
 
-  .rail-step:last-child {
-    padding-bottom: 24px;
+  .roles-next {
+    grid-column: auto;
   }
 }
 
@@ -1411,19 +1412,18 @@ img {
     flex-wrap: wrap;
   }
 
-  .bridge-head > div:not(.target-role) {
-    flex: 1 1 0;
+  .bridge-head > div {
+    flex: 1 1 calc(100% - 60px);
     min-width: 0;
   }
 
-  .target-role {
-    width: 100%;
+  .bridge-logo {
+    height: 38px;
     margin-left: 0;
-    text-align: left;
   }
 
-  .target-role img {
-    margin-left: 0;
+  .roles {
+    padding: 22px 18px;
   }
 
   .hero {
