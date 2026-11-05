@@ -938,17 +938,6 @@ img {
   }
 }
 
-.bridge-source {
-  margin: 14px 0 0;
-  color: var(--faint);
-  font-size: 0.78rem;
-  line-height: 1.65;
-}
-
-.bridge-source a {
-  color: var(--muted);
-}
-
 /* ───────────── Media (hover / tap to play) ───────────── */
 .media {
   position: relative;
