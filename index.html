@@ -303,10 +303,13 @@
               <li><span>Interactive<br />3DGS</span></li>
               <li><span>Quality<br />Evaluation</span></li>
             </ul>
-            <p class="bridge-note">
-              로봇이 들어가는 집이 늘어날수록 <span>① 빠른 3D 공간 복원</span> <span>② 의미 단위 공간 이해</span>
-              <span>③ 공간 갱신·확장</span> <span>④ 시뮬레이션 기반 검증</span>이 동시에 필요한 구조
-            </p>
+            <p class="bridge-note">로봇이 들어가는 집이 늘어날수록 동시에 필요한 구조</p>
+            <ol class="bridge-needs">
+              <li>① 빠른 3D 공간 복원</li>
+              <li>② 의미 단위 공간 이해</li>
+              <li>③ 공간 갱신·확장</li>
+              <li>④ 시뮬레이션 기반 검증</li>
+            </ol>
           </div>
 
           <div class="bridge-state is-tobe">
@@ -337,17 +340,16 @@
           <p class="roles-label" lang="en">My Role</p>
           <div class="role">
             <h4 lang="en">Indoor 3D Reconstruction</h4>
-            <p>방 단위 3DGS 에셋을 경계면 기준으로 정제하고 텍스처로 베이킹한 경험으로, 실내 공간을 깨끗한 모듈형 3D 표현으로 구성</p>
+            <p>제한된 관측에서도 집 안 공간을 고품질 3DGS·NeRF로 복원하고, 서비스와 시뮬레이션에 쓸 수 있는 깨끗한 3D 에셋으로 정제할 수 있습니다.</p>
           </div>
           <div class="role">
-            <h4 lang="en">Scene Structuring &amp; Interaction</h4>
-            <p>SAM3 기반 문 추출, 문 코너 4개 기반 정합, 문 개폐 구현 경험으로 공간을 방과 문 단위로 구조화</p>
+            <h4 lang="en">Semantic &amp; Modular Mapping</h4>
+            <p>공간을 방, 문, 객체 단위로 구조화하고 모듈로 정합해, 집이 바뀌어도 바뀐 부분만 갱신할 수 있는 공간 표현을 만들 수 있습니다.</p>
           </div>
           <div class="role">
-            <h4 lang="en">Rendering &amp; Evaluation</h4>
-            <p>ASN으로 서브픽셀 어긋남을 보정하고 PSNR, SSIM, LPIPS와 ablation으로 검증한 경험으로, 제한된 관측의 복원 품질을 개선하고 정량 평가</p>
+            <h4 lang="en">Real-to-Sim &amp; Validation</h4>
+            <p>복원한 공간을 시뮬레이션 환경으로 옮기고, PSNR, SSIM, LPIPS와 ablation으로 품질을 정량 검증해 로봇의 학습과 검증을 뒷받침할 수 있습니다.</p>
           </div>
-          <p class="roles-next"><strong lang="en">Next Step</strong>복원한 공간을 시뮬레이터로 옮겨 로봇의 학습·검증 환경으로 확장</p>
         </div>
       </section>
 

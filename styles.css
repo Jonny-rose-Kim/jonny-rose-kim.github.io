@@ -842,8 +842,15 @@ img {
   text-align: center;
 }
 
-.bridge-note span {
-  white-space: nowrap;
+.bridge-needs {
+  width: fit-content;
+  margin: 6px auto 0;
+  padding: 0;
+  color: var(--text);
+  font-size: 0.89rem;
+  font-weight: 500;
+  line-height: 1.75;
+  list-style: none;
 }
 
 .roles {
@@ -859,7 +866,6 @@ img {
 }
 
 .roles-label {
-  grid-row: span 2;
   width: min-content;
   margin: 0;
   color: var(--accent);
@@ -881,22 +887,6 @@ img {
   color: var(--muted);
   font-size: 0.87rem;
   line-height: 1.6;
-}
-
-.roles-next {
-  grid-column: 2 / -1;
-  margin: 0;
-  padding-top: 12px;
-  border-top: 1px dashed var(--border-strong);
-  color: var(--muted);
-  font-size: 0.87rem;
-  line-height: 1.6;
-}
-
-.roles-next strong {
-  margin-right: 10px;
-  color: var(--text);
-  font-weight: 600;
 }
 
 @media (max-width: 1000px) {
@@ -929,12 +919,7 @@ img {
   }
 
   .roles-label {
-    grid-row: auto;
     width: auto;
-  }
-
-  .roles-next {
-    grid-column: auto;
   }
 }
 
